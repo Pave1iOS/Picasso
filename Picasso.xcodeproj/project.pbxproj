@@ -18,6 +18,8 @@
 		4667FE702B84E88400BA94B2 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 4667FE6F2B84E88400BA94B2 /* Alamofire */; };
 		4667FE732B8535E600BA94B2 /* SpringAnimation in Frameworks */ = {isa = PBXBuildFile; productRef = 4667FE722B8535E600BA94B2 /* SpringAnimation */; };
 		4667FE752B87E2D800BA94B2 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4667FE742B87E2D800BA94B2 /* SearchViewController.swift */; };
+		4667FE782B87EB4A00BA94B2 /* AlamofireImage in Frameworks */ = {isa = PBXBuildFile; productRef = 4667FE772B87EB4A00BA94B2 /* AlamofireImage */; };
+		4667FE7D2B87EEF300BA94B2 /* ImageItemCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4667FE7C2B87EEF300BA94B2 /* ImageItemCollectionView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +34,7 @@
 		4667FE642B8478A600BA94B2 /* Picasso.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Picasso.swift; sourceTree = "<group>"; };
 		4667FE692B8478E800BA94B2 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		4667FE742B87E2D800BA94B2 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		4667FE7C2B87EEF300BA94B2 /* ImageItemCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageItemCollectionView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -41,6 +44,7 @@
 			files = (
 				4667FE732B8535E600BA94B2 /* SpringAnimation in Frameworks */,
 				4667FE702B84E88400BA94B2 /* Alamofire in Frameworks */,
+				4667FE782B87EB4A00BA94B2 /* AlamofireImage in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -67,6 +71,7 @@
 			isa = PBXGroup;
 			children = (
 				4667FE622B84785600BA94B2 /* ViewControllers */,
+				4667FE7B2B87ED4B00BA94B2 /* Views */,
 				4667FE662B8478AA00BA94B2 /* Models */,
 				4667FE6B2B8478EE00BA94B2 /* Services */,
 				4667FE632B84786400BA94B2 /* Storyboards */,
@@ -120,6 +125,14 @@
 			path = Services;
 			sourceTree = "<group>";
 		};
+		4667FE7B2B87ED4B00BA94B2 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				4667FE7C2B87EEF300BA94B2 /* ImageItemCollectionView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -139,6 +152,7 @@
 			packageProductDependencies = (
 				4667FE6F2B84E88400BA94B2 /* Alamofire */,
 				4667FE722B8535E600BA94B2 /* SpringAnimation */,
+				4667FE772B87EB4A00BA94B2 /* AlamofireImage */,
 			);
 			productName = Picasso;
 			productReference = 4667FE4A2B8477FF00BA94B2 /* Picasso.app */;
@@ -171,6 +185,7 @@
 			packageReferences = (
 				4667FE6E2B84E88400BA94B2 /* XCRemoteSwiftPackageReference "Alamofire" */,
 				4667FE712B8535E600BA94B2 /* XCRemoteSwiftPackageReference "SpringAnimation" */,
+				4667FE762B87EB4A00BA94B2 /* XCRemoteSwiftPackageReference "AlamofireImage" */,
 			);
 			productRefGroup = 4667FE4B2B8477FF00BA94B2 /* Products */;
 			projectDirPath = "";
@@ -199,6 +214,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4667FE7D2B87EEF300BA94B2 /* ImageItemCollectionView.swift in Sources */,
 				4667FE752B87E2D800BA94B2 /* SearchViewController.swift in Sources */,
 				4667FE522B8477FF00BA94B2 /* ImageViewController.swift in Sources */,
 				4667FE4E2B8477FF00BA94B2 /* AppDelegate.swift in Sources */,
@@ -451,6 +467,14 @@
 				minimumVersion = 0.3.0;
 			};
 		};
+		4667FE762B87EB4A00BA94B2 /* XCRemoteSwiftPackageReference "AlamofireImage" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/AlamofireImage.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.3.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -463,6 +487,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 4667FE712B8535E600BA94B2 /* XCRemoteSwiftPackageReference "SpringAnimation" */;
 			productName = SpringAnimation;
+		};
+		4667FE772B87EB4A00BA94B2 /* AlamofireImage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4667FE762B87EB4A00BA94B2 /* XCRemoteSwiftPackageReference "AlamofireImage" */;
+			productName = AlamofireImage;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

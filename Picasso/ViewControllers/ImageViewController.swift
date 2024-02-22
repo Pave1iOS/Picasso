@@ -22,7 +22,7 @@ final class ImageViewController: UIViewController {
     
     let networkManager = NetworkManager.shared
     
-    let imageArray = ["testImage", "testImage2"] // TEST
+    let imageArray = ["testImage", "testImage2", "testImage3", "testImage4", "testImage5", "testImage6"] // TEST
     var indexNumber = 0 { // TEST
         didSet {
             if indexNumber >= imageArray.count {
