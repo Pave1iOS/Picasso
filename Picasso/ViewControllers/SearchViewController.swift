@@ -11,22 +11,16 @@ class SearchViewController: UIViewController {
 
     @IBOutlet weak var searchTF: UITextField! {
         didSet {
-            searchTF.layer.cornerRadius = cornerRadius
+            searchTF.layer.cornerRadius = presetFiltersViews.cornerRadius
         }
     }
-    
     @IBOutlet weak var imageCollectionView: UICollectionView!
-    @IBOutlet var presetFiltersView: [UIView]! {
-        didSet {
-            presetFiltersView.forEach{ $0.layer.cornerRadius = cornerRadius }
-        }
-    }
     
-    private let cornerRadius: CGFloat = 10
+    private let presetFiltersViews = PresetFiltersView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         imageCollectionView.dataSource = self
         imageCollectionView.delegate = self
         

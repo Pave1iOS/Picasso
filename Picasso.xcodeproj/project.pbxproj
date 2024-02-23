@@ -20,6 +20,7 @@
 		4667FE752B87E2D800BA94B2 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4667FE742B87E2D800BA94B2 /* SearchViewController.swift */; };
 		4667FE782B87EB4A00BA94B2 /* AlamofireImage in Frameworks */ = {isa = PBXBuildFile; productRef = 4667FE772B87EB4A00BA94B2 /* AlamofireImage */; };
 		4667FE7D2B87EEF300BA94B2 /* ImageItemCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4667FE7C2B87EEF300BA94B2 /* ImageItemCollectionView.swift */; };
+		4667FE7F2B88BE6600BA94B2 /* PresetFiltersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4667FE7E2B88BE6600BA94B2 /* PresetFiltersView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +36,7 @@
 		4667FE692B8478E800BA94B2 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		4667FE742B87E2D800BA94B2 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		4667FE7C2B87EEF300BA94B2 /* ImageItemCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageItemCollectionView.swift; sourceTree = "<group>"; };
+		4667FE7E2B88BE6600BA94B2 /* PresetFiltersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresetFiltersView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -129,6 +131,7 @@
 			isa = PBXGroup;
 			children = (
 				4667FE7C2B87EEF300BA94B2 /* ImageItemCollectionView.swift */,
+				4667FE7E2B88BE6600BA94B2 /* PresetFiltersView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -215,6 +218,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4667FE7D2B87EEF300BA94B2 /* ImageItemCollectionView.swift in Sources */,
+				4667FE7F2B88BE6600BA94B2 /* PresetFiltersView.swift in Sources */,
 				4667FE752B87E2D800BA94B2 /* SearchViewController.swift in Sources */,
 				4667FE522B8477FF00BA94B2 /* ImageViewController.swift in Sources */,
 				4667FE4E2B8477FF00BA94B2 /* AppDelegate.swift in Sources */,
