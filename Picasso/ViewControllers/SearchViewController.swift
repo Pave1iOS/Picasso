@@ -23,8 +23,6 @@ class SearchViewController: UIViewController {
     }
     
     private let cornerRadius: CGFloat = 10
-    let imageArray = ["testImage", "testImage2", "testImage3", "testImage4", "testImage5", "testImage6"] // TEST
-
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,16 +38,16 @@ class SearchViewController: UIViewController {
 
 extension SearchViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        imageArray.count
+        6
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let item = collectionView.dequeueReusableCell(withReuseIdentifier: "imageItem", for: indexPath) as? ImageItemCollectionView
         
-        let currentImage = imageArray[indexPath.row]
         
-        item?.imageItemCV.image = UIImage(named: currentImage)
-        
+        DispatchQueue.main.async {
+            item?.imageItemCV.image = UIImage(named: "testImage2")
+        }
         
         
         return item ?? UICollectionViewCell()
@@ -69,12 +67,13 @@ extension SearchViewController: UICollectionViewDelegateFlowLayout {
         
         
         let layout = collectionView.collectionViewLayout as! UICollectionViewFlowLayout
-        layout.minimumInteritemSpacing = 0.5
-        layout.minimumLineSpacing = 0.5
-        let mySize = UIScreen.main.bounds.width / 2 - 17
+        layout.minimumLineSpacing = 4
+        layout.minimumInteritemSpacing = 4
+        let imageSize = UIScreen.main.bounds.width / 2 - 18
+        
         layout.invalidateLayout()
-
-        return CGSize(width: mySize, height: mySize)
+        
+        return CGSize(width: imageSize, height: imageSize)
 
             
 
@@ -85,4 +84,3 @@ extension SearchViewController: UICollectionViewDelegateFlowLayout {
 //        return CGSize(width: ((self.view.frame.width/2) - 6), height: ((self.view.frame.width / 2) - 6))
         }
 }
-
