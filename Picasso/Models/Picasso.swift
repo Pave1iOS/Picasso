@@ -7,7 +7,12 @@
 
 import Foundation
 
-struct Picasso: Codable {
+struct SearchPicasso: Decodable {
+
+    let results: [Picasso]
+}
+
+struct Picasso: Decodable {
     let id: String
     let width: Int
     let height: Int
@@ -15,7 +20,7 @@ struct Picasso: Codable {
     let blur_hash: String
 //    let location: Location
     let urls: Urls
-//    let links: Links
+    let links: Links
 }
 
 //struct Location: Decodable {
@@ -23,7 +28,7 @@ struct Picasso: Codable {
 //    let country: String
 //}
 
-struct Urls: Codable {
+struct Urls: Decodable {
     let raw: String
     let full: String
     let regular: String
@@ -31,7 +36,11 @@ struct Urls: Codable {
     let thumb: String
 }
 
-//struct Links: Decodable {
-//    let html: String
-//    let download: String
-//}
+struct Links: Decodable {
+    let html: String
+    let download: String
+}
+
+
+
+

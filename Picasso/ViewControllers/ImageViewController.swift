@@ -64,7 +64,7 @@ private extension ImageViewController {
 // MARK: Fetch
 private extension ImageViewController {
     func fetchPicasso() {
-        networkManager.fetchPicasso(from: "https://api.unsplash.com/photos/random/") { [unowned self] result in
+        networkManager.fetchPicasso { [unowned self] result in
             switch result {
             case .success(let data):
                 

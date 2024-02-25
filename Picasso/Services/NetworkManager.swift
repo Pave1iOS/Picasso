@@ -13,8 +13,11 @@ final class NetworkManager {
     
     private init() {}
     
-    func fetchPicasso(from url: String, handler: @escaping (Result<Picasso, AFError>) -> Void) {
-        AF.request(url, headers: ["Authorization": "Client-ID XXD-C_ut3-D7jl2VKQ-vzWvDMihqK8023vDhp2UDzU8"])
+    func fetchPicasso(handler: @escaping (Result<Picasso, AFError>) -> Void) {
+        AF.request(
+            "https://api.unsplash.com/photos/random/",
+            headers: ["Authorization": "Client-ID XXD-C_ut3-D7jl2VKQ-vzWvDMihqK8023vDhp2UDzU8"]
+        )
             .validate()
             .responseDecodable(of: Picasso.self) { response in
                 switch response.result {
@@ -26,6 +29,20 @@ final class NetworkManager {
             }
     }
     
+    func fetchPicassoImageSet(withURL url: String, handler: @escaping (Result<SearchPicasso, AFError>) -> Void) {
+        AF.request(url,
+           headers: ["Authorization": "Client-ID XXD-C_ut3-D7jl2VKQ-vzWvDMihqK8023vDhp2UDzU8"])
+            .validate()
+            .responseDecodable(of: SearchPicasso.self, completionHandler: { response in
+                switch response.result {
+                case .success(let data):
+                    handler(.success(data))
+                case .failure(let error):
+                    handler(.failure(error))
+                }
+            })
+    }
+        
     func fetchImage(from url: URL, handler: @escaping(Data) -> Void) {
         DispatchQueue.global().async {
             guard let imageData = try? Data(contentsOf: url) else { return }
