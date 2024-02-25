@@ -7,12 +7,12 @@
 
 import UIKit
 import Kingfisher
-import AlamofireImage
 
 final class ImageItemCollectionView: UICollectionViewCell {
     @IBOutlet weak var imageItemCV: UIImageView! {
         didSet {
             imageItemCV.layer.cornerRadius = 10
+            imageItemCV.contentMode = .scaleAspectFill
         }
     }
     
@@ -20,13 +20,14 @@ final class ImageItemCollectionView: UICollectionViewCell {
         super.awakeFromNib()
    
     }
+    
     func configure(with picasso: Picasso) {
         
         let imageURL = URL(string: picasso.urls.small)
         let processor = DownsamplingImageProcessor(size: imageItemCV.bounds.size)
         
         imageItemCV.kf.indicatorType = .activity
-        imageItemCV.kf.setImage(with: imageURL, placeholder: UIImage(named: "LSIcon"), options: [
+        imageItemCV.kf.setImage(with: imageURL, options: [
             .processor(processor),
             .scaleFactor(UIScreen.main.scale),
             .transition(.fade(1)),

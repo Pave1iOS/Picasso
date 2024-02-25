@@ -18,7 +18,6 @@
 		4667FE702B84E88400BA94B2 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 4667FE6F2B84E88400BA94B2 /* Alamofire */; };
 		4667FE732B8535E600BA94B2 /* SpringAnimation in Frameworks */ = {isa = PBXBuildFile; productRef = 4667FE722B8535E600BA94B2 /* SpringAnimation */; };
 		4667FE752B87E2D800BA94B2 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4667FE742B87E2D800BA94B2 /* SearchViewController.swift */; };
-		4667FE782B87EB4A00BA94B2 /* AlamofireImage in Frameworks */ = {isa = PBXBuildFile; productRef = 4667FE772B87EB4A00BA94B2 /* AlamofireImage */; };
 		4667FE7D2B87EEF300BA94B2 /* ImageItemCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4667FE7C2B87EEF300BA94B2 /* ImageItemCollectionView.swift */; };
 		4667FE7F2B88BE6600BA94B2 /* PresetFiltersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4667FE7E2B88BE6600BA94B2 /* PresetFiltersView.swift */; };
 		4667FE822B8B58F900BA94B2 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 4667FE812B8B58F900BA94B2 /* Kingfisher */; };
@@ -48,7 +47,6 @@
 				4667FE822B8B58F900BA94B2 /* Kingfisher in Frameworks */,
 				4667FE732B8535E600BA94B2 /* SpringAnimation in Frameworks */,
 				4667FE702B84E88400BA94B2 /* Alamofire in Frameworks */,
-				4667FE782B87EB4A00BA94B2 /* AlamofireImage in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -157,7 +155,6 @@
 			packageProductDependencies = (
 				4667FE6F2B84E88400BA94B2 /* Alamofire */,
 				4667FE722B8535E600BA94B2 /* SpringAnimation */,
-				4667FE772B87EB4A00BA94B2 /* AlamofireImage */,
 				4667FE812B8B58F900BA94B2 /* Kingfisher */,
 			);
 			productName = Picasso;
@@ -191,7 +188,6 @@
 			packageReferences = (
 				4667FE6E2B84E88400BA94B2 /* XCRemoteSwiftPackageReference "Alamofire" */,
 				4667FE712B8535E600BA94B2 /* XCRemoteSwiftPackageReference "SpringAnimation" */,
-				4667FE762B87EB4A00BA94B2 /* XCRemoteSwiftPackageReference "AlamofireImage" */,
 				4667FE802B8B58F900BA94B2 /* XCRemoteSwiftPackageReference "Kingfisher" */,
 			);
 			productRefGroup = 4667FE4B2B8477FF00BA94B2 /* Products */;
@@ -475,14 +471,6 @@
 				minimumVersion = 0.3.0;
 			};
 		};
-		4667FE762B87EB4A00BA94B2 /* XCRemoteSwiftPackageReference "AlamofireImage" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/Alamofire/AlamofireImage.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 4.3.0;
-			};
-		};
 		4667FE802B8B58F900BA94B2 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
@@ -503,11 +491,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 4667FE712B8535E600BA94B2 /* XCRemoteSwiftPackageReference "SpringAnimation" */;
 			productName = SpringAnimation;
-		};
-		4667FE772B87EB4A00BA94B2 /* AlamofireImage */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 4667FE762B87EB4A00BA94B2 /* XCRemoteSwiftPackageReference "AlamofireImage" */;
-			productName = AlamofireImage;
 		};
 		4667FE812B8B58F900BA94B2 /* Kingfisher */ = {
 			isa = XCSwiftPackageProductDependency;

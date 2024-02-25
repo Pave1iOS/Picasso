@@ -19,7 +19,7 @@ class SearchViewController: UIViewController {
     private let presetFiltersViews = PresetFiltersView()
     private let networkManager = NetworkManager.shared
     private var picasses: [Picasso] = []
-    private let searchText = "flowers"
+    private let searchText = "sport"
     
     override func viewDidLoad() {
         super.viewDidLoad()
