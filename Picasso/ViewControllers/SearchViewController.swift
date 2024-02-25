@@ -9,18 +9,30 @@ import UIKit
 
 class SearchViewController: UIViewController {
 
+    // MARK: IBOutlets
+    
+    // Search
     @IBOutlet weak var searchTF: UITextField! {
         didSet {
-            searchTF.layer.cornerRadius = presetFiltersViews.cornerRadius
+            searchTF.layer.cornerRadius = cornerRadius
         }
     }
+    
+    //Collection View
     @IBOutlet weak var imageCollectionView: UICollectionView!
     
-    private let presetFiltersViews = PresetFiltersView()
+    // Preset Buttons
+    @IBOutlet var presetsFilterView: [UIView]!
+    @IBOutlet var presetsFilterImage: [UIImageView]!
+    @IBOutlet var presetsFilterLabel: [UILabel]!
+    
+    // MARK: Properties
     private let networkManager = NetworkManager.shared
     private var picasses: [Picasso] = []
     private let searchText = "sport"
+    private let cornerRadius: CGFloat = 10
     
+    // MARK: viewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -28,9 +40,8 @@ class SearchViewController: UIViewController {
         imageCollectionView.delegate = self
         
         fetchPicassoImages()
-        
+        setUPPresetButtons()
     }
-    
 }
 
 // MARK: UICollectionViewDataSource
@@ -82,16 +93,49 @@ extension SearchViewController: UICollectionViewDelegateFlowLayout {
 
 private extension SearchViewController {
     func fetchPicassoImages() {
-        networkManager.fetchPicassoImageSet(withURL: "https://api.unsplash.com/search/photos?query=\(searchText)") { result in
+        networkManager.fetchPicassoImageSet(
+            withURL: "https://api.unsplash.com/search/photos?query=\(searchText)"
+        ) { [unowned self] result in
             switch result {
             case .success(let searchPicasso):
-                self.picasses.append(contentsOf: searchPicasso.results)
-                self.imageCollectionView.reloadData()
+                picasses.append(contentsOf: searchPicasso.results)
+                imageCollectionView.reloadData()
                 //self.searchPicasso = searchPicasso
                 print(searchPicasso)
             case .failure(let failure):
                 print(failure)
             }
         }
+        
+    }
+}
+
+// MARK: Function
+private extension SearchViewController {
+    func setUPPresetButtons() {
+        //views
+        presetsFilterView.forEach { $0.backgroundColor = .clear }
+
+        // imageViews
+        presetsFilterImage.forEach { $0.layer.cornerRadius = cornerRadius / 2 }
+        presetsFilterImage.forEach{ $0.contentMode = .scaleAspectFill }
+        presetsFilterImage.forEach{ $0.alpha = 0.5 }
+        
+        setTitleButtons()
+    }
+    
+    func setTitleButtons() {
+        let imagesName = ["filterCar","filterCat","filterMountain","filterSport"]
+        let titles = ["car", "cat", "mountain", "sport"]
+        let iterationCount = min(presetsFilterView.count, presetsFilterImage.count)
+        
+//        DispatchQueue.main.async { [unowned self] in
+            for index in 0..<iterationCount {
+                presetsFilterImage[index].image = UIImage(named: imagesName[index])
+                presetsFilterLabel[index].text = titles[index]
+            }
+            
+//        }
+        
     }
 }
