@@ -18,7 +18,7 @@ class SearchViewController: UIViewController {
     
     private let presetFiltersViews = PresetFiltersView()
     private let networkManager = NetworkManager.shared
-    private var searchPicasso: [Picasso] = []
+    private var picasses: [Picasso] = []
     private let searchText = "flowers"
     
     override func viewDidLoad() {
@@ -36,19 +36,15 @@ class SearchViewController: UIViewController {
 // MARK: UICollectionViewDataSource
 extension SearchViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        6
+        picasses.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let item = collectionView.dequeueReusableCell(withReuseIdentifier: "imageItem", for: indexPath) as? ImageItemCollectionView
-//        let imagesPicasso = searchPicasso[indexPath.row].results
-//        let picasso = imagesPicasso[indexPath.row]
+        let picassoImage = picasses[indexPath.row]
         
-//        item?.configure(with: picasso)
-        
-        
-//        item?.imageItemCV.image = UIImage(named: image.results.forEach { $0.urls.regular })
-        
+        item?.configure(with: picassoImage)
+                
         return item ?? UICollectionViewCell()
     }
     
@@ -89,7 +85,8 @@ private extension SearchViewController {
         networkManager.fetchPicassoImageSet(withURL: "https://api.unsplash.com/search/photos?query=\(searchText)") { result in
             switch result {
             case .success(let searchPicasso):
-                self.searchPicasso.append(contentsOf: searchPicasso.results)
+                self.picasses.append(contentsOf: searchPicasso.results)
+                self.imageCollectionView.reloadData()
                 //self.searchPicasso = searchPicasso
                 print(searchPicasso)
             case .failure(let failure):

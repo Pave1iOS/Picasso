@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Kingfisher
 import AlamofireImage
 
 final class ImageItemCollectionView: UICollectionViewCell {
@@ -20,19 +21,17 @@ final class ImageItemCollectionView: UICollectionViewCell {
    
     }
     func configure(with picasso: Picasso) {
-        let imageURL = URL(string: picasso.urls.regular)
         
-        imageItemCV.af.setImage(withURL: imageURL!, placeholderImage: UIImage(named: "LSIcon"), completion:  { response in
-            switch response.result {
-                
-            case .success(_):
-                print("succes, image download")
-            case .failure(let error):
-                print(error.localizedDescription)
-            }
-        })
+        let imageURL = URL(string: picasso.urls.small)
+        let processor = DownsamplingImageProcessor(size: imageItemCV.bounds.size)
         
-        
+        imageItemCV.kf.indicatorType = .activity
+        imageItemCV.kf.setImage(with: imageURL, placeholder: UIImage(named: "LSIcon"), options: [
+            .processor(processor),
+            .scaleFactor(UIScreen.main.scale),
+            .transition(.fade(1)),
+            .cacheOriginalImage
+        ])
     }
     
 }
