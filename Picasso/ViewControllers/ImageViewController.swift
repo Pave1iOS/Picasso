@@ -40,7 +40,7 @@ final class ImageViewController: UIViewController {
         activityIndicatorImage.startAnimating()
 //        fetchPicasso()
         
-        
+        nextImageAnimate() // TEST
         indexNumber += 1 // TEST
         imageView.image = UIImage(named: imageArray[indexNumber]) // TEST
         activityIndicatorImage.stopAnimating() // TEST

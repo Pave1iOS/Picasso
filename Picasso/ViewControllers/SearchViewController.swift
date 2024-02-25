@@ -7,7 +7,7 @@
 
 import UIKit
 
-class SearchViewController: UIViewController {
+final class SearchViewController: UIViewController {
 
     // MARK: IBOutlets
     
@@ -32,7 +32,7 @@ class SearchViewController: UIViewController {
     // MARK: Properties
     private let networkManager = NetworkManager.shared
     private var picasses: [Picasso] = []
-    private let searchText = "sport"
+    private let searchText = "озеро"
     private let cornerRadius: CGFloat = 10
     
     // MARK: viewDidLoad
