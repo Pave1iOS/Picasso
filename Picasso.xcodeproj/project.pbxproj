@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		464D9D5C2B8BA0D300DC5828 /* FilterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464D9D5B2B8BA0D300DC5828 /* FilterView.swift */; };
 		4667FE4E2B8477FF00BA94B2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4667FE4D2B8477FF00BA94B2 /* AppDelegate.swift */; };
 		4667FE502B8477FF00BA94B2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4667FE4F2B8477FF00BA94B2 /* SceneDelegate.swift */; };
 		4667FE522B8477FF00BA94B2 /* ImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4667FE512B8477FF00BA94B2 /* ImageViewController.swift */; };
@@ -23,6 +24,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		464D9D5B2B8BA0D300DC5828 /* FilterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterView.swift; sourceTree = "<group>"; };
 		4667FE4A2B8477FF00BA94B2 /* Picasso.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Picasso.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4667FE4D2B8477FF00BA94B2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4667FE4F2B8477FF00BA94B2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -129,6 +131,7 @@
 			isa = PBXGroup;
 			children = (
 				4667FE7C2B87EEF300BA94B2 /* ImageItemCollectionView.swift */,
+				464D9D5B2B8BA0D300DC5828 /* FilterView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -218,6 +221,7 @@
 				4667FE752B87E2D800BA94B2 /* SearchViewController.swift in Sources */,
 				4667FE522B8477FF00BA94B2 /* ImageViewController.swift in Sources */,
 				4667FE4E2B8477FF00BA94B2 /* AppDelegate.swift in Sources */,
+				464D9D5C2B8BA0D300DC5828 /* FilterView.swift in Sources */,
 				4667FE6A2B8478E800BA94B2 /* NetworkManager.swift in Sources */,
 				4667FE652B8478A600BA94B2 /* Picasso.swift in Sources */,
 				4667FE502B8477FF00BA94B2 /* SceneDelegate.swift in Sources */,

@@ -116,7 +116,7 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Jsh-EX-H5r">
                                         <rect key="frame" x="0.0" y="0.0" width="288" height="30"/>
                                         <subviews>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZW4-mP-Jhc">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZW4-mP-Jhc" customClass="FilterView" customModule="Picasso" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="143" height="30"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="zqG-7I-Vpu">
@@ -138,8 +138,13 @@
                                                     <constraint firstItem="mNK-ze-93Z" firstAttribute="centerY" secondItem="ZW4-mP-Jhc" secondAttribute="centerY" id="put-uJ-qKG"/>
                                                     <constraint firstItem="zqG-7I-Vpu" firstAttribute="top" secondItem="ZW4-mP-Jhc" secondAttribute="top" id="xlN-NC-eNn"/>
                                                 </constraints>
+                                                <connections>
+                                                    <outlet property="backView" destination="eRr-kj-k7U" id="vbL-vJ-vmh"/>
+                                                    <outlet property="imageView" destination="zqG-7I-Vpu" id="aOF-Gc-Xlq"/>
+                                                    <outlet property="label" destination="mNK-ze-93Z" id="8R7-h9-AlS"/>
+                                                </connections>
                                             </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hry-JP-FSP">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hry-JP-FSP" customClass="FilterView" customModule="Picasso" customModuleProvider="target">
                                                 <rect key="frame" x="151" y="0.0" width="137" height="30"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="kzE-9i-7ss">
@@ -161,6 +166,11 @@
                                                     <constraint firstItem="kzE-9i-7ss" firstAttribute="top" secondItem="hry-JP-FSP" secondAttribute="top" id="dD7-eY-w95"/>
                                                     <constraint firstItem="Iua-7j-Bex" firstAttribute="centerY" secondItem="hry-JP-FSP" secondAttribute="centerY" id="gXX-HV-Qd7"/>
                                                 </constraints>
+                                                <connections>
+                                                    <outlet property="backView" destination="ZW4-mP-Jhc" id="9S6-DQ-zyN"/>
+                                                    <outlet property="imageView" destination="kzE-9i-7ss" id="moE-GL-I5C"/>
+                                                    <outlet property="label" destination="Iua-7j-Bex" id="sYx-c8-uzy"/>
+                                                </connections>
                                             </view>
                                         </subviews>
                                         <constraints>
@@ -171,7 +181,7 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Qlr-J7-n43">
                                         <rect key="frame" x="0.0" y="38" width="288" height="30"/>
                                         <subviews>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="n4G-Vu-BRi">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="n4G-Vu-BRi" customClass="FilterView" customModule="Picasso" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="143" height="30"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="UZn-X3-RoS">
@@ -193,8 +203,13 @@
                                                     <constraint firstItem="UZn-X3-RoS" firstAttribute="top" secondItem="n4G-Vu-BRi" secondAttribute="top" id="zBL-Ul-yER"/>
                                                     <constraint firstItem="UZn-X3-RoS" firstAttribute="leading" secondItem="n4G-Vu-BRi" secondAttribute="leading" id="zdr-Bt-2EZ"/>
                                                 </constraints>
+                                                <connections>
+                                                    <outlet property="backView" destination="hry-JP-FSP" id="wVq-Uj-Scz"/>
+                                                    <outlet property="imageView" destination="UZn-X3-RoS" id="Kyg-iT-x8d"/>
+                                                    <outlet property="label" destination="PxL-PK-z4l" id="aO6-hB-Rbj"/>
+                                                </connections>
                                             </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eRr-kj-k7U">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eRr-kj-k7U" customClass="FilterView" customModule="Picasso" customModuleProvider="target">
                                                 <rect key="frame" x="151" y="0.0" width="137" height="30"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Nt3-OV-zyC">
@@ -216,6 +231,11 @@
                                                     <constraint firstAttribute="trailing" secondItem="Nt3-OV-zyC" secondAttribute="trailing" id="drv-QT-PKu"/>
                                                     <constraint firstItem="Nt3-OV-zyC" firstAttribute="leading" secondItem="eRr-kj-k7U" secondAttribute="leading" id="gSy-1M-dsU"/>
                                                 </constraints>
+                                                <connections>
+                                                    <outlet property="backView" destination="n4G-Vu-BRi" id="1am-pP-2k8"/>
+                                                    <outlet property="imageView" destination="Nt3-OV-zyC" id="cye-nc-roU"/>
+                                                    <outlet property="label" destination="taH-dS-a4m" id="dVx-fh-J7O"/>
+                                                </connections>
                                             </view>
                                         </subviews>
                                         <constraints>
@@ -283,20 +303,12 @@
                     </view>
                     <navigationItem key="navigationItem" title="search" id="8NO-87-QWg"/>
                     <connections>
+                        <outlet property="carButtonView" destination="ZW4-mP-Jhc" id="N0R-hz-7x0"/>
+                        <outlet property="catButtonView" destination="hry-JP-FSP" id="88c-qR-Y2Z"/>
                         <outlet property="imageCollectionView" destination="jQK-Af-1Df" id="ggZ-aY-FxU"/>
+                        <outlet property="mountainButtonView" destination="n4G-Vu-BRi" id="XSk-1c-YSo"/>
                         <outlet property="searchTF" destination="WtK-bs-Jqd" id="NAg-7V-08O"/>
-                        <outletCollection property="presetsFilterView" destination="ZW4-mP-Jhc" collectionClass="NSMutableArray" id="DUe-kp-Vdq"/>
-                        <outletCollection property="presetsFilterView" destination="hry-JP-FSP" collectionClass="NSMutableArray" id="e9W-0A-OQr"/>
-                        <outletCollection property="presetsFilterView" destination="n4G-Vu-BRi" collectionClass="NSMutableArray" id="weQ-7g-8xT"/>
-                        <outletCollection property="presetsFilterView" destination="eRr-kj-k7U" collectionClass="NSMutableArray" id="Rga-QP-Wsj"/>
-                        <outletCollection property="presetsFilterImage" destination="zqG-7I-Vpu" collectionClass="NSMutableArray" id="HnV-Hy-4I5"/>
-                        <outletCollection property="presetsFilterImage" destination="kzE-9i-7ss" collectionClass="NSMutableArray" id="juX-3u-s6V"/>
-                        <outletCollection property="presetsFilterImage" destination="UZn-X3-RoS" collectionClass="NSMutableArray" id="JMi-3W-ghi"/>
-                        <outletCollection property="presetsFilterImage" destination="Nt3-OV-zyC" collectionClass="NSMutableArray" id="6u7-B3-Gcu"/>
-                        <outletCollection property="presetsFilterLabel" destination="mNK-ze-93Z" collectionClass="NSMutableArray" id="RrK-2F-eTN"/>
-                        <outletCollection property="presetsFilterLabel" destination="Iua-7j-Bex" collectionClass="NSMutableArray" id="ZNu-WC-eyt"/>
-                        <outletCollection property="presetsFilterLabel" destination="PxL-PK-z4l" collectionClass="NSMutableArray" id="4qd-VW-req"/>
-                        <outletCollection property="presetsFilterLabel" destination="taH-dS-a4m" collectionClass="NSMutableArray" id="qcZ-gQ-ouy"/>
+                        <outlet property="sportButtonView" destination="eRr-kj-k7U" id="n64-vN-hyR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FhZ-OC-85O" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

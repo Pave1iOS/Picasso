@@ -22,9 +22,12 @@ class SearchViewController: UIViewController {
     @IBOutlet weak var imageCollectionView: UICollectionView!
     
     // Preset Buttons
-    @IBOutlet var presetsFilterView: [UIView]!
-    @IBOutlet var presetsFilterImage: [UIImageView]!
-    @IBOutlet var presetsFilterLabel: [UILabel]!
+    @IBOutlet weak var carButtonView: FilterView!
+    @IBOutlet weak var catButtonView: FilterView!
+    @IBOutlet weak var mountainButtonView: FilterView!
+    @IBOutlet weak var sportButtonView: FilterView!
+    
+    
     
     // MARK: Properties
     private let networkManager = NetworkManager.shared
@@ -40,7 +43,8 @@ class SearchViewController: UIViewController {
         imageCollectionView.delegate = self
         
         fetchPicassoImages()
-        setUPPresetButtons()
+        setUPButtonView()
+        
     }
 }
 
@@ -112,30 +116,21 @@ private extension SearchViewController {
 
 // MARK: Function
 private extension SearchViewController {
-    func setUPPresetButtons() {
-        //views
-        presetsFilterView.forEach { $0.backgroundColor = .clear }
-
-        // imageViews
-        presetsFilterImage.forEach { $0.layer.cornerRadius = cornerRadius / 2 }
-        presetsFilterImage.forEach{ $0.contentMode = .scaleAspectFill }
-        presetsFilterImage.forEach{ $0.alpha = 0.5 }
+    func setUPButtonView() {
+        // car
+        carButtonView.label.text = "car"
+        carButtonView.imageView.image = UIImage(named: "filterCar")
         
-        setTitleButtons()
-    }
-    
-    func setTitleButtons() {
-        let imagesName = ["filterCar","filterCat","filterMountain","filterSport"]
-        let titles = ["car", "cat", "mountain", "sport"]
-        let iterationCount = min(presetsFilterView.count, presetsFilterImage.count)
+        // cat
+        catButtonView.label.text = "cat"
+        catButtonView.imageView.image = UIImage(named: "filterCat")
         
-//        DispatchQueue.main.async { [unowned self] in
-            for index in 0..<iterationCount {
-                presetsFilterImage[index].image = UIImage(named: imagesName[index])
-                presetsFilterLabel[index].text = titles[index]
-            }
-            
-//        }
+        // sport
+        sportButtonView.label.text = "sport"
+        sportButtonView.imageView.image = UIImage(named: "filterSport")
         
+        // mountain
+        mountainButtonView.label.text = "mountain"
+        mountainButtonView.imageView.image = UIImage(named: "filterMountain")
     }
 }
