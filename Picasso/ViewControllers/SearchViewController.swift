@@ -63,6 +63,7 @@ final class SearchViewController: UIViewController {
     // MARK: IBAction
     // Button Find
     @IBAction func searchTFButtonPressed() {
+        searchText = searchTF.text ?? ""
         changeContent()
         searchTF.resignFirstResponder()
     }
@@ -138,7 +139,7 @@ private extension SearchViewController {
     
     func fetchPicasso() {
         networkManager.fetchPicasses(
-            withURL: "https://api.unsplash.com/search/photos?query=\(searchTF.text ?? searchText)"
+            withURL: "https://api.unsplash.com/search/photos?query=\(searchText)"
         ) { [unowned self] result in
             switch result {
             case .success(let searchPicasso):
