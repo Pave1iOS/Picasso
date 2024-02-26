@@ -38,6 +38,7 @@ final class SearchViewController: UIViewController {
         
         imageCollectionView.dataSource = self
         imageCollectionView.delegate = self
+        searchTF.delegate = self
         
         fetchPicassoDidLoad()
         setUPButtonView()
@@ -51,15 +52,26 @@ final class SearchViewController: UIViewController {
     }
         
     // MARK: IBAction
-    //TextField Button
+    // Button Find
     @IBAction func searchTFButtonPressed() {
-        if searchTF.text != "" {
-            picasses.removeAll()
-            fetchPicassoImages()
-        }
+        changeContent()
+        searchTF.resignFirstResponder()
+    }
+}
+
+// MARK: UITextFieldDelegate
+extension SearchViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        
+        changeContent()
+        
+        return textField.resignFirstResponder()
     }
     
-    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        textField.perform(#selector(selectAll), with: textField, afterDelay: 0)
+        textField.layer.borderColor = UIColor.black.cgColor
+    }
     
 }
 
@@ -98,12 +110,6 @@ extension SearchViewController: UICollectionViewDelegateFlowLayout {
         layout.invalidateLayout()
         
         return CGSize(width: imageSize, height: imageSize)
-
-//        let layout = collectionView.collectionViewLayout as! UICollectionViewFlowLayout
-//        layout.sectionInset = UIEdgeInsets(top: 6, left: 4, bottom: 6, right: 4)
-//        layout.minimumInteritemSpacing = 04
-//        layout.minimumLineSpacing = 04
-//        return CGSize(width: ((self.view.frame.width/2) - 6), height: ((self.view.frame.width / 2) - 6))
         }
 }
 
@@ -115,8 +121,8 @@ private extension SearchViewController {
         ) { [unowned self] result in
             switch result {
             case .success(let searchPicasso):
-                imageCollectionView.reloadData()
                 picasses.append(contentsOf: searchPicasso.results)
+                imageCollectionView.reloadData()
                 
                 print(searchPicasso)
             case .failure(let failure):
@@ -162,5 +168,12 @@ private extension SearchViewController {
         // mountain
         mountainButtonView.label.text = "mountain"
         mountainButtonView.imageView.image = UIImage(named: "filterMountain")
+    }
+    
+    func changeContent() {
+        if searchTF.text != "" {
+            picasses.removeAll()
+            fetchPicassoImages()
+        }
     }
 }
