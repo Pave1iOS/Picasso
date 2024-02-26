@@ -106,18 +106,19 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GAF-hm-kjm">
-                                <rect key="frame" x="16" y="84" width="288" height="30"/>
+                                <rect key="frame" x="16" y="84" width="288" height="35"/>
                                 <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="search" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="WtK-bs-Jqd">
-                                        <rect key="frame" x="0.0" y="0.0" width="288" height="30"/>
+                                    <textField opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="search" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="WtK-bs-Jqd">
+                                        <rect key="frame" x="0.0" y="0.0" width="288" height="35"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocorrectionType="yes" spellCheckingType="yes" returnKeyType="search" enablesReturnKeyAutomatically="YES"/>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="akQ-K2-TGZ">
-                                        <rect key="frame" x="206" y="5" width="57" height="20"/>
+                                        <rect key="frame" x="211" y="5" width="57" height="25"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="20" id="yRJ-4G-g9U"/>
+                                            <constraint firstAttribute="height" constant="25" id="yRJ-4G-g9U"/>
                                         </constraints>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title="Find"/>
@@ -128,7 +129,7 @@
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="akQ-K2-TGZ" secondAttribute="trailing" constant="25" id="3wq-WZ-pHT"/>
+                                    <constraint firstAttribute="trailing" secondItem="akQ-K2-TGZ" secondAttribute="trailing" constant="20" id="3wq-WZ-pHT"/>
                                     <constraint firstItem="akQ-K2-TGZ" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="GAF-hm-kjm" secondAttribute="leading" constant="20" symbolic="YES" id="DpE-Gw-Lsu"/>
                                     <constraint firstItem="akQ-K2-TGZ" firstAttribute="top" secondItem="GAF-hm-kjm" secondAttribute="top" constant="5" id="ODc-Ry-Ih0"/>
                                     <constraint firstAttribute="bottom" secondItem="akQ-K2-TGZ" secondAttribute="bottom" constant="5" id="Wv6-Zw-4eC"/>
@@ -139,7 +140,7 @@
                                 </constraints>
                             </view>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="89v-dm-B2V">
-                                <rect key="frame" x="16" y="144" width="288" height="68"/>
+                                <rect key="frame" x="16" y="149" width="288" height="68"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Jsh-EX-H5r">
                                         <rect key="frame" x="0.0" y="0.0" width="288" height="30"/>
@@ -274,7 +275,7 @@
                                 </subviews>
                             </stackView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="jQK-Af-1Df">
-                                <rect key="frame" x="16" y="242" width="288" height="306"/>
+                                <rect key="frame" x="16" y="247" width="288" height="301"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="qi9-8t-co8">
                                     <size key="itemSize" width="128" height="128"/>
@@ -336,6 +337,7 @@
                         <outlet property="imageCollectionView" destination="jQK-Af-1Df" id="ggZ-aY-FxU"/>
                         <outlet property="mountainButtonView" destination="n4G-Vu-BRi" id="XSk-1c-YSo"/>
                         <outlet property="searchTF" destination="WtK-bs-Jqd" id="DZ1-rc-4bA"/>
+                        <outlet property="searchView" destination="GAF-hm-kjm" id="0wP-lG-XrB"/>
                         <outlet property="sportButtonView" destination="eRr-kj-k7U" id="n64-vN-hyR"/>
                     </connections>
                 </viewController>

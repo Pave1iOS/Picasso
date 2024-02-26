@@ -13,7 +13,13 @@ final class SearchViewController: UIViewController {
     // Search
     @IBOutlet weak var searchTF: UITextField! {
         didSet {
-            searchTF.layer.cornerRadius = cornerRadius
+            styleTF(searchTF)
+        }
+    }
+    
+    @IBOutlet weak var searchView: UIView! {
+        didSet {
+            styleTFView(searchView)
         }
     }
     
@@ -113,6 +119,7 @@ extension SearchViewController: UICollectionViewDelegateFlowLayout {
         }
 }
 
+// MARK: Fetch Function
 private extension SearchViewController {
     
     func fetchPicassoDidLoad() {
@@ -175,5 +182,23 @@ private extension SearchViewController {
             picasses.removeAll()
             fetchPicassoImages()
         }
+    }
+    
+    func styleTF(_ textField: UITextField){
+        textField.textColor = .white
+        
+        textField.attributedPlaceholder = NSAttributedString(
+            string: "search...",
+            attributes: [
+                NSAttributedString.Key.foregroundColor: UIColor.white.withAlphaComponent(0.5)
+            ]
+        )
+    }
+    
+    func styleTFView(_ view: UIView){
+        view.layer.cornerRadius = cornerRadius
+        view.layer.borderColor = UIColor.white.withAlphaComponent(0.5).cgColor
+        view.layer.borderWidth = 1
+        view.layer.masksToBounds = true
     }
 }
