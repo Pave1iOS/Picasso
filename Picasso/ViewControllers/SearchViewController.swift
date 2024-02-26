@@ -14,12 +14,17 @@ final class SearchViewController: UIViewController {
     @IBOutlet weak var searchTF: UITextField! {
         didSet {
             styleTF(searchTF)
+            hideButtonFind()
         }
     }
-    
     @IBOutlet weak var searchView: UIView! {
         didSet {
             styleTFView(searchView)
+        }
+    }
+    @IBOutlet weak var searchButton: UIButton! {
+        didSet {
+            searchButton.isHidden = true
         }
     }
     
@@ -35,8 +40,7 @@ final class SearchViewController: UIViewController {
     // MARK: Properties
     private let networkManager = NetworkManager.shared
     private var picasses: [Picasso] = []
-    private var searchText = "бесплатно"
-    private let cornerRadius: CGFloat = 10
+    private var searchText = "животные"
     
     // MARK: viewDidLoad
     override func viewDidLoad() {
@@ -46,9 +50,8 @@ final class SearchViewController: UIViewController {
         imageCollectionView.delegate = self
         searchTF.delegate = self
         
-        fetchPicassoDidLoad()
+        fetchPicassoPreset()
         setUPButtonView()
-        
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -68,9 +71,7 @@ final class SearchViewController: UIViewController {
 // MARK: UITextFieldDelegate
 extension SearchViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        
         changeContent()
-        
         return textField.resignFirstResponder()
     }
     
@@ -78,7 +79,6 @@ extension SearchViewController: UITextFieldDelegate {
         textField.perform(#selector(selectAll), with: textField, afterDelay: 0)
         textField.layer.borderColor = UIColor.black.cgColor
     }
-    
 }
 
 // MARK: UICollectionViewDataSource
@@ -95,7 +95,6 @@ extension SearchViewController: UICollectionViewDataSource {
                         
         return item ?? UICollectionViewCell()
     }
-
 }
 
 // MARK: UICollectionViewDelegate
@@ -106,7 +105,6 @@ extension SearchViewController: UICollectionViewDelegate {
 // MARK: UICollectionViewDelegateFlowLayout
 extension SearchViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        
         
         let layout = collectionView.collectionViewLayout as! UICollectionViewFlowLayout
         layout.minimumLineSpacing = 4
@@ -122,25 +120,24 @@ extension SearchViewController: UICollectionViewDelegateFlowLayout {
 // MARK: Fetch Function
 private extension SearchViewController {
     
-    func fetchPicassoDidLoad() {
-        networkManager.fetchPicassoImageSet(
+    func fetchPicassoPreset() {
+        networkManager.fetchPicasses(
             withURL: "https://api.unsplash.com/search/photos?query=\(searchText)"
         ) { [unowned self] result in
             switch result {
             case .success(let searchPicasso):
                 picasses.append(contentsOf: searchPicasso.results)
                 imageCollectionView.reloadData()
-                
+                //self.searchPicasso = searchPicasso
                 print(searchPicasso)
             case .failure(let failure):
                 print(failure)
             }
         }
-        
     }
     
-    func fetchPicassoImages() {
-        networkManager.fetchPicassoImageSet(
+    func fetchPicasso() {
+        networkManager.fetchPicasses(
             withURL: "https://api.unsplash.com/search/photos?query=\(searchTF.text ?? searchText)"
         ) { [unowned self] result in
             switch result {
@@ -153,7 +150,6 @@ private extension SearchViewController {
                 print(failure)
             }
         }
-        
     }
 }
 
@@ -179,8 +175,9 @@ private extension SearchViewController {
     
     func changeContent() {
         if searchTF.text != "" {
+            searchButton.isHidden = true
             picasses.removeAll()
-            fetchPicassoImages()
+            fetchPicasso()
         }
     }
     
@@ -196,9 +193,17 @@ private extension SearchViewController {
     }
     
     func styleTFView(_ view: UIView){
-        view.layer.cornerRadius = cornerRadius
+        view.layer.cornerRadius = 15
         view.layer.borderColor = UIColor.white.withAlphaComponent(0.5).cgColor
         view.layer.borderWidth = 1
         view.layer.masksToBounds = true
+    }
+    
+    func hideButtonFind() {
+        let hideButton = UIAction { [unowned self] _ in
+            searchButton.isHidden = false
+        }
+        
+        searchTF.addAction(hideButton, for: .editingChanged)
     }
 }

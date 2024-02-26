@@ -336,6 +336,7 @@
                         <outlet property="catButtonView" destination="hry-JP-FSP" id="88c-qR-Y2Z"/>
                         <outlet property="imageCollectionView" destination="jQK-Af-1Df" id="ggZ-aY-FxU"/>
                         <outlet property="mountainButtonView" destination="n4G-Vu-BRi" id="XSk-1c-YSo"/>
+                        <outlet property="searchButton" destination="akQ-K2-TGZ" id="axi-k4-HAk"/>
                         <outlet property="searchTF" destination="WtK-bs-Jqd" id="DZ1-rc-4bA"/>
                         <outlet property="searchView" destination="GAF-hm-kjm" id="0wP-lG-XrB"/>
                         <outlet property="sportButtonView" destination="eRr-kj-k7U" id="n64-vN-hyR"/>

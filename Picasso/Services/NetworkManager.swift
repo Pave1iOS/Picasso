@@ -13,6 +13,21 @@ final class NetworkManager {
     
     private init() {}
     
+    func fetchPicasses(withURL url: String, handler: @escaping (Result<SearchPicasso, AFError>) -> Void) {
+        AF.request(url,
+            parameters: ["per_page": 30],
+            headers: ["Authorization": "Client-ID XXD-C_ut3-D7jl2VKQ-vzWvDMihqK8023vDhp2UDzU8"])
+            .validate()
+            .responseDecodable(of: SearchPicasso.self, completionHandler: { response in
+                switch response.result {
+                case .success(let data):
+                    handler(.success(data))
+                case .failure(let error):
+                    handler(.failure(error))
+                }
+            })
+    }
+    
     func fetchPicasso(handler: @escaping (Result<Picasso, AFError>) -> Void) {
         AF.request(
             "https://api.unsplash.com/photos/random/",
@@ -27,20 +42,6 @@ final class NetworkManager {
                     handler(.failure(error))
                 }
             }
-    }
-    
-    func fetchPicassoImageSet(withURL url: String, handler: @escaping (Result<SearchPicasso, AFError>) -> Void) {
-        AF.request(url,
-           headers: ["Authorization": "Client-ID XXD-C_ut3-D7jl2VKQ-vzWvDMihqK8023vDhp2UDzU8"])
-            .validate()
-            .responseDecodable(of: SearchPicasso.self, completionHandler: { response in
-                switch response.result {
-                case .success(let data):
-                    handler(.success(data))
-                case .failure(let error):
-                    handler(.failure(error))
-                }
-            })
     }
         
     func fetchImage(from url: URL, handler: @escaping(Data) -> Void) {
