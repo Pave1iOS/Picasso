@@ -10,7 +10,6 @@ import UIKit
 final class SearchViewController: UIViewController {
 
     // MARK: IBOutlets
-    
     // Search
     @IBOutlet weak var searchTF: UITextField! {
         didSet {
@@ -18,7 +17,7 @@ final class SearchViewController: UIViewController {
         }
     }
     
-    //Collection View
+    // Collection View
     @IBOutlet weak var imageCollectionView: UICollectionView!
     
     // Preset Buttons
@@ -26,13 +25,11 @@ final class SearchViewController: UIViewController {
     @IBOutlet weak var catButtonView: FilterView!
     @IBOutlet weak var mountainButtonView: FilterView!
     @IBOutlet weak var sportButtonView: FilterView!
-    
-    
-    
+        
     // MARK: Properties
     private let networkManager = NetworkManager.shared
     private var picasses: [Picasso] = []
-    private let searchText = "озеро"
+    private var searchText = "бесплатно"
     private let cornerRadius: CGFloat = 10
     
     // MARK: viewDidLoad
@@ -42,10 +39,28 @@ final class SearchViewController: UIViewController {
         imageCollectionView.dataSource = self
         imageCollectionView.delegate = self
         
-        fetchPicassoImages()
+        fetchPicassoDidLoad()
         setUPButtonView()
         
     }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesBegan(touches, with: event)
+        
+        view.endEditing(true)
+    }
+        
+    // MARK: IBAction
+    //TextField Button
+    @IBAction func searchTFButtonPressed() {
+        if searchTF.text != "" {
+            picasses.removeAll()
+            fetchPicassoImages()
+        }
+    }
+    
+    
+    
 }
 
 // MARK: UICollectionViewDataSource
@@ -59,17 +74,14 @@ extension SearchViewController: UICollectionViewDataSource {
         let picassoImage = picasses[indexPath.row]
         
         item?.configure(with: picassoImage)
-                
+                        
         return item ?? UICollectionViewCell()
     }
-    
-    
 
 }
 
 // MARK: UICollectionViewDelegate
 extension SearchViewController: UICollectionViewDelegate {
-    
     
 }
 
@@ -96,9 +108,27 @@ extension SearchViewController: UICollectionViewDelegateFlowLayout {
 }
 
 private extension SearchViewController {
-    func fetchPicassoImages() {
+    
+    func fetchPicassoDidLoad() {
         networkManager.fetchPicassoImageSet(
             withURL: "https://api.unsplash.com/search/photos?query=\(searchText)"
+        ) { [unowned self] result in
+            switch result {
+            case .success(let searchPicasso):
+                imageCollectionView.reloadData()
+                picasses.append(contentsOf: searchPicasso.results)
+                
+                print(searchPicasso)
+            case .failure(let failure):
+                print(failure)
+            }
+        }
+        
+    }
+    
+    func fetchPicassoImages() {
+        networkManager.fetchPicassoImageSet(
+            withURL: "https://api.unsplash.com/search/photos?query=\(searchTF.text ?? searchText)"
         ) { [unowned self] result in
             switch result {
             case .success(let searchPicasso):
