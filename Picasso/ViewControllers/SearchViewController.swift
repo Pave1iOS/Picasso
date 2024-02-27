@@ -63,7 +63,6 @@ final class SearchViewController: UIViewController {
     // MARK: IBAction
     // Button Find
     @IBAction func searchTFButtonPressed() {
-        searchText = searchTF.text ?? ""
         changeContent()
         searchTF.resignFirstResponder()
     }
@@ -73,6 +72,7 @@ final class SearchViewController: UIViewController {
 extension SearchViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         changeContent()
+        
         return textField.resignFirstResponder()
     }
     
@@ -129,8 +129,6 @@ private extension SearchViewController {
             case .success(let searchPicasso):
                 picasses.append(contentsOf: searchPicasso.results)
                 imageCollectionView.reloadData()
-                //self.searchPicasso = searchPicasso
-                print(searchPicasso)
             case .failure(let failure):
                 print(failure)
             }
@@ -145,8 +143,6 @@ private extension SearchViewController {
             case .success(let searchPicasso):
                 picasses.append(contentsOf: searchPicasso.results)
                 imageCollectionView.reloadData()
-                //self.searchPicasso = searchPicasso
-                print(searchPicasso)
             case .failure(let failure):
                 print(failure)
             }
@@ -176,6 +172,7 @@ private extension SearchViewController {
     
     func changeContent() {
         if searchTF.text != "" {
+            searchText = searchTF.text ?? ""
             searchButton.isHidden = true
             picasses.removeAll()
             fetchPicasso()
