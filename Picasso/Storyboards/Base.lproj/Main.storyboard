@@ -332,6 +332,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="search" id="8NO-87-QWg"/>
                     <connections>
+                        <outlet property="activityIndicatorBlur" destination="Q42-ZZ-Jdo" id="VJm-IL-Px6"/>
                         <outlet property="carButtonView" destination="ZW4-mP-Jhc" id="N0R-hz-7x0"/>
                         <outlet property="catButtonView" destination="hry-JP-FSP" id="88c-qR-Y2Z"/>
                         <outlet property="imageCollectionView" destination="jQK-Af-1Df" id="ggZ-aY-FxU"/>
@@ -340,9 +341,50 @@
                         <outlet property="searchTF" destination="WtK-bs-Jqd" id="DZ1-rc-4bA"/>
                         <outlet property="searchView" destination="GAF-hm-kjm" id="0wP-lG-XrB"/>
                         <outlet property="sportButtonView" destination="eRr-kj-k7U" id="n64-vN-hyR"/>
+                        <outlet property="visualEffectBlur" destination="tYZ-Kv-2Jq" id="ijG-BH-wYO"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FhZ-OC-85O" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <visualEffectView opaque="NO" contentMode="scaleToFill" id="tYZ-Kv-2Jq">
+                    <rect key="frame" x="0.0" y="0.0" width="240" height="182"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="OUY-vG-YyL">
+                        <rect key="frame" x="0.0" y="0.0" width="240" height="182"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <visualEffectView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Btg-WK-17u">
+                                <rect key="frame" x="0.0" y="0.0" width="0.0" height="54"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="cv0-bS-6UJ">
+                                    <rect key="frame" x="0.0" y="0.0" width="0.0" height="54"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                </view>
+                                <vibrancyEffect>
+                                    <blurEffect style="regular"/>
+                                </vibrancyEffect>
+                            </visualEffectView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="Q42-ZZ-Jdo">
+                                <rect key="frame" x="110" y="81" width="20" height="20"/>
+                                <color key="color" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </activityIndicatorView>
+                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.69999999999999996" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="image preparation, please wait" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CgA-FG-nfz">
+                                <rect key="frame" x="16" y="119" width="208" height="41"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="CgA-FG-nfz" secondAttribute="trailing" constant="16" id="79J-fQ-RXt"/>
+                            <constraint firstItem="CgA-FG-nfz" firstAttribute="top" secondItem="Q42-ZZ-Jdo" secondAttribute="bottom" constant="18" id="Yb6-x2-qhs"/>
+                            <constraint firstItem="CgA-FG-nfz" firstAttribute="leading" secondItem="OUY-vG-YyL" secondAttribute="leading" constant="16" id="eVP-G0-Fp0"/>
+                            <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="CgA-FG-nfz" secondAttribute="bottom" constant="22" id="krk-aj-C5s"/>
+                            <constraint firstItem="Q42-ZZ-Jdo" firstAttribute="centerY" secondItem="OUY-vG-YyL" secondAttribute="centerY" id="lL8-2d-wJg"/>
+                            <constraint firstItem="Q42-ZZ-Jdo" firstAttribute="centerX" secondItem="OUY-vG-YyL" secondAttribute="centerX" id="xt3-U1-EkZ"/>
+                        </constraints>
+                    </view>
+                    <blurEffect style="regular"/>
+                </visualEffectView>
             </objects>
             <point key="canvasLocation" x="1807.5" y="-2.112676056338028"/>
         </scene>
