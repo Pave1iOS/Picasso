@@ -21,10 +21,25 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <color key="backgroundColor" systemColor="tertiarySystemBackgroundColor"/>
                             </imageView>
-                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="QaY-KH-R95">
-                                <rect key="frame" x="141.5" y="265.5" width="37" height="37"/>
-                                <color key="color" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            </activityIndicatorView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="DpX-pE-QsE">
+                                <rect key="frame" x="16" y="248" width="288" height="72.5"/>
+                                <subviews>
+                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="QaY-KH-R95">
+                                        <rect key="frame" x="125.5" y="0.0" width="37" height="37"/>
+                                        <color key="color" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </activityIndicatorView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="loading..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HIS-0o-8CI">
+                                        <rect key="frame" x="16" y="52" width="256" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="HIS-0o-8CI" secondAttribute="trailing" constant="16" id="RsC-ES-JGu"/>
+                                    <constraint firstItem="HIS-0o-8CI" firstAttribute="leading" secondItem="DpX-pE-QsE" secondAttribute="leading" constant="16" id="eUl-kg-koM"/>
+                                </constraints>
+                            </stackView>
                             <view alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1ov-XW-brX" userLabel="title&amp;statusBarVision">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="95"/>
                                 <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -66,12 +81,14 @@
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="1ov-XW-brX" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="1gO-Fv-p4g"/>
+                            <constraint firstItem="DpX-pE-QsE" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="25i-ZU-RYV"/>
                             <constraint firstItem="1ov-XW-brX" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="4zU-4x-skd"/>
-                            <constraint firstItem="QaY-KH-R95" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="8hQ-sV-Zpc"/>
                             <constraint firstAttribute="bottom" secondItem="u3b-Vu-5Ja" secondAttribute="bottom" id="Dhe-x6-dvo"/>
-                            <constraint firstItem="QaY-KH-R95" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="Dtp-1j-y7s"/>
+                            <constraint firstItem="DpX-pE-QsE" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="H3X-ED-jdw"/>
                             <constraint firstAttribute="trailing" secondItem="1ov-XW-brX" secondAttribute="trailing" id="KFV-iS-lfY"/>
                             <constraint firstItem="omd-vp-wAB" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Wds-pK-Akd"/>
+                            <constraint firstItem="DpX-pE-QsE" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="WwR-1X-sJa"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="DpX-pE-QsE" secondAttribute="trailing" constant="16" id="eDe-hF-UpC"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="u3b-Vu-5Ja" secondAttribute="trailing" id="h9d-hS-iUY"/>
                             <constraint firstItem="u3b-Vu-5Ja" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="yke-Sw-DjL"/>
                             <constraint firstItem="u3b-Vu-5Ja" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="z5D-Kh-ldH"/>
@@ -90,6 +107,7 @@
                     <connections>
                         <outlet property="activityIndicatorImage" destination="QaY-KH-R95" id="0Cb-6Z-X8b"/>
                         <outlet property="imageView" destination="u3b-Vu-5Ja" id="MM8-g8-Tox"/>
+                        <outlet property="loadingLabel" destination="HIS-0o-8CI" id="Gto-bH-2iA"/>
                         <outlet property="nextImageButton" destination="omd-vp-wAB" id="Mjh-Ng-7av"/>
                     </connections>
                 </viewController>

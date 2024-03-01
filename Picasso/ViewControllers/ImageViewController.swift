@@ -25,34 +25,24 @@ final class ImageViewController: UIViewController {
             activityIndicatorImage.hidesWhenStopped = true
         }
     }
+    @IBOutlet weak var loadingLabel: UILabel!
+    
+    
     
     // MARK: Properties
     let networkManager = NetworkManager.shared
     
-    let imageArray = ["testImage", "testImage2", "testImage3", "testImage4", "testImage5", "testImage6"] // TEST
-    var indexNumber = 0 { // TEST
-        didSet {
-            if indexNumber >= imageArray.count {
-                indexNumber = 0
-            }
-        }
-    }
-    
     // MARK: viewDidLoad()
     override func viewDidLoad() {
         super.viewDidLoad()
-        imageView.image = UIImage(named: imageArray[indexNumber]) // TEST
+//        fetchPicasso()
     }
 
     // MARK: @IBAction
     @IBAction func changeImageDidTapped() {
         activityIndicatorImage.startAnimating()
-//        fetchPicasso()
-        
-        nextImageAnimate() // TEST
-        indexNumber += 1 // TEST
-        imageView.image = UIImage(named: imageArray[indexNumber]) // TEST
-        activityIndicatorImage.stopAnimating() // TEST
+        loadingLabel.isHidden = false
+        fetchPicasso()
     }
         
     // MARK: override func
@@ -96,8 +86,8 @@ private extension ImageViewController {
                 nextImageAnimate()
                 
                 activityIndicatorImage.stopAnimating()
+                loadingLabel.isHidden = true
                 
-                print(data) // TEST
             case .failure(let error):
                 print(error.localizedDescription)
             }
