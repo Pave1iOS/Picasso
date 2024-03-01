@@ -38,6 +38,7 @@ final class SearchViewController: UIViewController {
     @IBOutlet weak var sportButtonView: FilterView!
         
     // MARK: Properties
+    var delegate: SearchViewControllerDelegate!
     private let networkManager = NetworkManager.shared
     private var picasses: [Picasso] = []
     private var searchText = "животные"
@@ -95,6 +96,12 @@ extension SearchViewController: UICollectionViewDataSource {
         item?.configure(with: picassoImage)
                         
         return item ?? UICollectionViewCell()
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let selectedImageURL = picasses[indexPath.row].urls.regular
+        delegate.returnImage(selectedImageURL)
+        navigationController?.popViewController(animated: true)
     }
 }
 

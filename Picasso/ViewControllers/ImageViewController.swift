@@ -8,6 +8,10 @@
 import UIKit
 import SpringAnimation
 
+protocol SearchViewControllerDelegate {
+    func returnImage(_ imageURL: String)
+}
+
 final class ImageViewController: UIViewController {
 
     @IBOutlet weak var imageView: SpringImageView!
@@ -45,7 +49,20 @@ final class ImageViewController: UIViewController {
         imageView.image = UIImage(named: imageArray[indexNumber]) // TEST
         activityIndicatorImage.stopAnimating() // TEST
     }
-    
+        
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let searchVC = segue.destination as? SearchViewController
+        
+        searchVC?.delegate = self
+    }
+}
+
+extension ImageViewController: SearchViewControllerDelegate {
+    func returnImage(_ imageURL: String) {
+        networkManager.fetchImage(from: URL(string: imageURL)!) { [unowned self] dataImage in
+            imageView.image = UIImage(data: dataImage)
+        }
+    }
 }
 
 // MARK: Animation
