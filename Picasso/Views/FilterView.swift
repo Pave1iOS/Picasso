@@ -12,6 +12,7 @@ final class FilterView: UIView {
     @IBOutlet weak var backView: UIView!
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var label: UILabel!
+    @IBOutlet weak var button: UIButton!
         
     override func awakeFromNib() {
         super.awakeFromNib()

@@ -73,7 +73,7 @@ final class SearchViewController: UIViewController {
     // MARK: IBAction
     // Button Find
     @IBAction func searchTFButtonPressed() {
-        changeContent()
+        changeContentForTF()
         searchTF.resignFirstResponder()
     }
 }
@@ -82,7 +82,7 @@ final class SearchViewController: UIViewController {
 extension SearchViewController: UITextFieldDelegate {
     // hide keyboard
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        changeContent()
+        changeContentForTF()
         
         return textField.resignFirstResponder()
     }
@@ -186,30 +186,43 @@ private extension SearchViewController {
 // MARK: Function
 private extension SearchViewController {
     func setUPButtonView() {
+        let buttonAction = UIAction { [unowned self] _ in
+            presetButtonTapped()
+        }
+        
         // car
         carButtonView.label.text = "car"
         carButtonView.imageView.image = UIImage(named: "filterCar")
+        carButtonView.button.addAction(buttonAction, for: .touchUpInside)
         
         // cat
         catButtonView.label.text = "cat"
         catButtonView.imageView.image = UIImage(named: "filterCat")
+        catButtonView.button.addAction(buttonAction, for: .touchUpInside)
         
         // sport
         sportButtonView.label.text = "sport"
         sportButtonView.imageView.image = UIImage(named: "filterSport")
+        sportButtonView.button.addAction(buttonAction, for: .touchUpInside)
         
         // mountain
         mountainButtonView.label.text = "mountain"
         mountainButtonView.imageView.image = UIImage(named: "filterMountain")
+        mountainButtonView.button.addAction(buttonAction, for: .touchUpInside)
     }
     
-    func changeContent() {
+    func changeContentForTF() {
         if searchTF.text != "" {
             searchText = searchTF.text ?? ""
             searchButton.isHidden = true
             picasses.removeAll()
             fetchPicasso()
         }
+    }
+    
+    func changeContent() {
+        picasses.removeAll()
+        fetchPicasso()
     }
     
     func styleTF(_ textField: UITextField){
@@ -236,5 +249,22 @@ private extension SearchViewController {
         }
         
         searchTF.addAction(hideButton, for: .editingChanged)
+    }
+    
+    func presetButtonTapped() {
+        
+        if carButtonView.button.isTouchInside {
+            searchText = "car"
+            changeContent()
+        } else if sportButtonView.button.isTouchInside {
+            searchText = "sport"
+            changeContent()
+        } else if mountainButtonView.button.isTouchInside {
+            searchText = "mountain"
+            changeContent()
+        } else {
+            searchText = "cat"
+            changeContent()
+        }
     }
 }
