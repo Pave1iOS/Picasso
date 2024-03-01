@@ -59,6 +59,9 @@ extension ImageViewController: SearchViewControllerDelegate {
         networkManager.fetchImage(from: URL(string: imageURL)!) { [unowned self] dataImage in
             imageView.image = UIImage(data: dataImage)
         }
+        
+        activityIndicatorImage.stopAnimating()
+        loadingLabel.isHidden = true
     }
 }
 
