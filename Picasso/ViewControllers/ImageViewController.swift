@@ -8,12 +8,14 @@
 import UIKit
 import SpringAnimation
 
+// MARK: Protocol SearchViewControllerDelegate
 protocol SearchViewControllerDelegate {
     func returnImage(_ imageURL: String)
 }
 
 final class ImageViewController: UIViewController {
 
+    // MARK: @IBOutlets
     @IBOutlet weak var imageView: SpringImageView!
     @IBOutlet weak var nextImageButton: SpringView!
     
@@ -24,6 +26,7 @@ final class ImageViewController: UIViewController {
         }
     }
     
+    // MARK: Properties
     let networkManager = NetworkManager.shared
     
     let imageArray = ["testImage", "testImage2", "testImage3", "testImage4", "testImage5", "testImage6"] // TEST
@@ -35,11 +38,13 @@ final class ImageViewController: UIViewController {
         }
     }
     
+    // MARK: viewDidLoad()
     override func viewDidLoad() {
         super.viewDidLoad()
         imageView.image = UIImage(named: imageArray[indexNumber]) // TEST
     }
 
+    // MARK: @IBAction
     @IBAction func changeImageDidTapped() {
         activityIndicatorImage.startAnimating()
 //        fetchPicasso()
@@ -50,6 +55,7 @@ final class ImageViewController: UIViewController {
         activityIndicatorImage.stopAnimating() // TEST
     }
         
+    // MARK: override func
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let searchVC = segue.destination as? SearchViewController
         
@@ -57,6 +63,7 @@ final class ImageViewController: UIViewController {
     }
 }
 
+// MARK: SearchViewControllerDelegate
 extension ImageViewController: SearchViewControllerDelegate {
     func returnImage(_ imageURL: String) {
         networkManager.fetchImage(from: URL(string: imageURL)!) { [unowned self] dataImage in

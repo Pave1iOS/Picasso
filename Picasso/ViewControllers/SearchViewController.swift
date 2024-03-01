@@ -43,7 +43,7 @@ final class SearchViewController: UIViewController {
     private var picasses: [Picasso] = []
     private var searchText = "животные"
     
-    // MARK: viewDidLoad
+    // MARK: viewDidLoad()
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -55,6 +55,7 @@ final class SearchViewController: UIViewController {
         setUPButtonView()
     }
     
+    // MARK: override func
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         super.touchesBegan(touches, with: event)
         
@@ -71,12 +72,13 @@ final class SearchViewController: UIViewController {
 
 // MARK: UITextFieldDelegate
 extension SearchViewController: UITextFieldDelegate {
+    // hide keyboard
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         changeContent()
         
         return textField.resignFirstResponder()
     }
-    
+    // selected text after click
     func textFieldDidBeginEditing(_ textField: UITextField) {
         textField.perform(#selector(selectAll), with: textField, afterDelay: 0)
         textField.layer.borderColor = UIColor.black.cgColor
@@ -98,6 +100,7 @@ extension SearchViewController: UICollectionViewDataSource {
         return item ?? UICollectionViewCell()
     }
     
+    // select item and transfer per delegate
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let selectedImageURL = picasses[indexPath.row].urls.regular
         delegate.returnImage(selectedImageURL)
@@ -112,6 +115,7 @@ extension SearchViewController: UICollectionViewDelegate {
 
 // MARK: UICollectionViewDelegateFlowLayout
 extension SearchViewController: UICollectionViewDelegateFlowLayout {
+    // custom size item cell
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
         let layout = collectionView.collectionViewLayout as! UICollectionViewFlowLayout
@@ -127,7 +131,7 @@ extension SearchViewController: UICollectionViewDelegateFlowLayout {
 
 // MARK: Fetch Function
 private extension SearchViewController {
-    
+    // start view
     func fetchPicassoPreset() {
         networkManager.fetchPicasses(
             withURL: "https://api.unsplash.com/search/photos?query=\(searchText)"
