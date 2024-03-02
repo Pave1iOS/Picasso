@@ -97,6 +97,12 @@
                     </view>
                     <navigationItem key="navigationItem" id="Rhr-Od-T6W">
                         <barButtonItem key="backBarButtonItem" title="back" id="oXS-xw-rFE"/>
+                        <barButtonItem key="leftBarButtonItem" title="about" id="Sfo-wo-FL6">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <segue destination="PiG-Hg-m2T" kind="presentation" id="BH3-h6-DXq"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="search" id="Fyq-Je-p0O">
                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
@@ -114,6 +120,34 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="980.625" y="-2.112676056338028"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="q3v-Qc-oLN">
+            <objects>
+                <viewController id="PiG-Hg-m2T" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5ui-56-M1e">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="548"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="collapseDesh" translatesAutoresizingMaskIntoConstraints="NO" id="ZhN-xd-41G">
+                                <rect key="frame" x="40" y="25" width="240" height="5"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="5" id="JoI-nG-gjq"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Bel-I4-lIt"/>
+                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="ZhN-xd-41G" firstAttribute="top" secondItem="Bel-I4-lIt" secondAttribute="top" constant="25" id="aQn-S0-DlV"/>
+                            <constraint firstItem="Bel-I4-lIt" firstAttribute="trailing" secondItem="ZhN-xd-41G" secondAttribute="trailing" constant="40" id="gwO-YS-IaS"/>
+                            <constraint firstItem="ZhN-xd-41G" firstAttribute="leading" secondItem="Bel-I4-lIt" secondAttribute="leading" constant="40" id="mtM-gF-jbL"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0OW-k3-HGz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="980.625" y="808.09859154929575"/>
         </scene>
         <!--search-->
         <scene sceneID="zdm-uq-GxZ">
@@ -473,6 +507,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="collapseDesh" width="512" height="512"/>
         <image name="nextImage" width="516" height="516"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
