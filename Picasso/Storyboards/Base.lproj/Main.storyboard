@@ -163,10 +163,10 @@
             </objects>
             <point key="canvasLocation" x="980.625" y="-2.112676056338028"/>
         </scene>
-        <!--View Controller-->
+        <!--About View Controller-->
         <scene sceneID="q3v-Qc-oLN">
             <objects>
-                <viewController id="PiG-Hg-m2T" sceneMemberID="viewController">
+                <viewController id="PiG-Hg-m2T" customClass="AboutViewController" customModule="Picasso" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5ui-56-M1e">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="548"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -177,10 +177,20 @@
                                     <constraint firstAttribute="height" constant="5" id="JoI-nG-gjq"/>
                                 </constraints>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gvt-07-x0p">
+                                <rect key="frame" x="133.5" y="256.5" width="53.5" height="35"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Buy"/>
+                                <connections>
+                                    <action selector="buyButtonDidTapped:" destination="PiG-Hg-m2T" eventType="touchUpInside" id="vrX-Xc-GZX"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Bel-I4-lIt"/>
                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="Gvt-07-x0p" firstAttribute="centerY" secondItem="5ui-56-M1e" secondAttribute="centerY" id="Wvn-le-VFd"/>
+                            <constraint firstItem="Gvt-07-x0p" firstAttribute="centerX" secondItem="5ui-56-M1e" secondAttribute="centerX" id="Xtg-D3-Q93"/>
                             <constraint firstItem="ZhN-xd-41G" firstAttribute="top" secondItem="Bel-I4-lIt" secondAttribute="top" constant="25" id="aQn-S0-DlV"/>
                             <constraint firstItem="Bel-I4-lIt" firstAttribute="trailing" secondItem="ZhN-xd-41G" secondAttribute="trailing" constant="40" id="gwO-YS-IaS"/>
                             <constraint firstItem="ZhN-xd-41G" firstAttribute="leading" secondItem="Bel-I4-lIt" secondAttribute="leading" constant="40" id="mtM-gF-jbL"/>
