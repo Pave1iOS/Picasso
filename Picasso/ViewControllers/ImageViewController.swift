@@ -27,6 +27,12 @@ final class ImageViewController: UIViewController {
     }
     @IBOutlet weak var loadingLabel: UILabel!
     
+    @IBOutlet weak var veBlur: UIVisualEffectView!
+    @IBOutlet weak var veActivity: UIActivityIndicatorView! {
+        didSet {
+            veActivity.hidesWhenStopped = true
+        }
+    }
     
     
     // MARK: Properties
@@ -53,15 +59,27 @@ final class ImageViewController: UIViewController {
     }
 }
 
-// MARK: SearchViewControllerDelegate
+// MARK: Protocol - SearchViewControllerDelegate
 extension ImageViewController: SearchViewControllerDelegate {
     func returnImage(_ imageURL: String) {
-        networkManager.fetchImage(from: URL(string: imageURL)!) { [unowned self] dataImage in
-            imageView.image = UIImage(data: dataImage)
-        }
         
+        // add visual effect view
+        view.addSubview(veBlur)
+        veBlur.frame = view.frame
+        veActivity.startAnimating()
+        
+        // hide minimalistic indicator
         activityIndicatorImage.stopAnimating()
         loadingLabel.isHidden = true
+        
+        // display image, after fetch
+        networkManager.fetchImage(from: URL(string: imageURL)!) { [unowned self] dataImage in
+            imageView.image = UIImage(data: dataImage)
+            
+            veActivity.stopAnimating()
+            veBlur.removeFromSuperview()
+            imageAppeared()
+        }
     }
 }
 
@@ -72,6 +90,12 @@ private extension ImageViewController {
         nextImageButton.force = 7
         nextImageButton.animate()
         
+        imageView.animation = "fadeIn"
+        imageView.duration = 2
+        imageView.animate()
+    }
+    
+    func imageAppeared() {
         imageView.animation = "fadeIn"
         imageView.duration = 2
         imageView.animate()

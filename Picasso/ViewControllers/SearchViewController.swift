@@ -37,14 +37,6 @@ final class SearchViewController: UIViewController {
     @IBOutlet weak var mountainButtonView: FilterView!
     @IBOutlet weak var sportButtonView: FilterView!
     
-    //Blur
-    @IBOutlet weak var visualEffectBlur: UIVisualEffectView!
-    @IBOutlet weak var activityIndicatorBlur: UIActivityIndicatorView! {
-        didSet {
-            activityIndicatorBlur.hidesWhenStopped = true
-        }
-    }
-    
     // MARK: Properties
     var delegate: SearchViewControllerDelegate!
     private let networkManager = NetworkManager.shared
@@ -112,21 +104,8 @@ extension SearchViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let selectedImageURL = picasses[indexPath.row].urls.full
         delegate.returnImage(selectedImageURL)
-        
-        view.addSubview(visualEffectBlur)
-        visualEffectBlur.frame = view.frame
-        
-        activityIndicatorBlur.startAnimating()
-        
-        
-        // transfer after deadline
-        DispatchQueue.main.asyncAfter(deadline: .now() + 3) { [unowned self] in
-            navigationController?.popViewController(animated: true)
-            
-            // blur views
-            activityIndicatorBlur.stopAnimating()
-            visualEffectBlur.removeFromSuperview()
-        }
+
+        navigationController?.popViewController(animated: true)
     }
 }
 
