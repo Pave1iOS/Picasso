@@ -10,34 +10,50 @@ import StoreKit
 
 class AboutViewController: UIViewController {
     
-    let productIds = ["main"]
-    var products: [Product] = []
+    let productIds = ["mainID"]
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        
         
     }
 
     @IBAction func buyButtonDidTapped(_ sender: UIButton) {
         
-        
         Task {
-//            guard let product = products.first else { return }
-//            try await purchase(product)
-            print(products)
+            let products = try await Product.products(for: productIds)
+            
+            products.forEach{ product in
+                Task {
+                    do {
+                        try await self.purchase(product)
+                    } catch {
+                        print(error)
+                    }
+                }
+            }
         }
     }
     
     private func purchase(_ product: Product) async throws {
        let result = try await product.purchase()
+        
+        switch result {
+                case let .success(.verified(transaction)):
+                    // Successful purchase
+                    await transaction.finish()
+                case let .success(.unverified(_, error)):
+                    // Successful purchase but transaction/receipt can't be verified
+                    // Could be a jailbroken phone
+                    break
+                case .pending:
+                    // Transaction waiting on SCA (Strong Customer Authentication) or
+                    // approval from Ask to Buy
+                    break
+                case .userCancelled:
+                    // ^^^
+                    break
+                @unknown default:
+                    break
+                }
     }
-    
-    
-    func loadProducts() async throws {
-        self.products = try await Product.products(for: productIds)
-    }
-    
-
 }
