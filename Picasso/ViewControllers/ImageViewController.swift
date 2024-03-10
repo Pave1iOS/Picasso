@@ -41,7 +41,7 @@ final class ImageViewController: UIViewController {
     // MARK: viewDidLoad()
     override func viewDidLoad() {
         super.viewDidLoad()
-//        fetchPicasso()
+        fetchPicasso()
     }
 
     // MARK: @IBAction
@@ -110,7 +110,6 @@ private extension ImageViewController {
             case .success(let data):
                 
                 fetchRandomImage(data)
-                nextImageAnimate()
                 
                 activityIndicatorImage.stopAnimating()
                 loadingLabel.isHidden = true
@@ -124,6 +123,7 @@ private extension ImageViewController {
     func fetchRandomImage(_ data: Picasso) {
         networkManager.fetchImage(from: URL(string: data.urls.regular)!) { [unowned self] dataImage in
             imageView.image = UIImage(data: dataImage)
+            nextImageAnimate()
         }
     }
 }
