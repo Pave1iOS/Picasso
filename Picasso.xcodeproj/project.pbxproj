@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4613FCBC2B9DDC0E00DFA543 /* BuyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4613FCBB2B9DDC0E00DFA543 /* BuyViewController.swift */; };
 		464D9D5C2B8BA0D300DC5828 /* FilterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464D9D5B2B8BA0D300DC5828 /* FilterView.swift */; };
 		4667FE4E2B8477FF00BA94B2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4667FE4D2B8477FF00BA94B2 /* AppDelegate.swift */; };
 		4667FE502B8477FF00BA94B2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4667FE4F2B8477FF00BA94B2 /* SceneDelegate.swift */; };
@@ -24,6 +25,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4613FCBB2B9DDC0E00DFA543 /* BuyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuyViewController.swift; sourceTree = "<group>"; };
+		4613FCBD2B9DDC5900DFA543 /* MainConfiguration.storekit */ = {isa = PBXFileReference; lastKnownFileType = text; path = MainConfiguration.storekit; sourceTree = "<group>"; };
 		464D9D5B2B8BA0D300DC5828 /* FilterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterView.swift; sourceTree = "<group>"; };
 		4667FE4A2B8477FF00BA94B2 /* Picasso.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Picasso.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4667FE4D2B8477FF00BA94B2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -78,6 +81,7 @@
 				4667FE6B2B8478EE00BA94B2 /* Services */,
 				4667FE632B84786400BA94B2 /* Storyboards */,
 				4667FE612B84784C00BA94B2 /* App */,
+				4613FCBD2B9DDC5900DFA543 /* MainConfiguration.storekit */,
 				4667FE562B84780100BA94B2 /* Assets.xcassets */,
 			);
 			path = Picasso;
@@ -98,6 +102,7 @@
 			children = (
 				4667FE512B8477FF00BA94B2 /* ImageViewController.swift */,
 				4667FE742B87E2D800BA94B2 /* SearchViewController.swift */,
+				4613FCBB2B9DDC0E00DFA543 /* BuyViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -219,6 +224,7 @@
 			files = (
 				4667FE7D2B87EEF300BA94B2 /* ImageItemCollectionView.swift in Sources */,
 				4667FE752B87E2D800BA94B2 /* SearchViewController.swift in Sources */,
+				4613FCBC2B9DDC0E00DFA543 /* BuyViewController.swift in Sources */,
 				4667FE522B8477FF00BA94B2 /* ImageViewController.swift in Sources */,
 				4667FE4E2B8477FF00BA94B2 /* AppDelegate.swift in Sources */,
 				464D9D5C2B8BA0D300DC5828 /* FilterView.swift in Sources */,
