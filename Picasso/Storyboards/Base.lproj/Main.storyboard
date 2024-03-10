@@ -18,7 +18,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="u3b-Vu-5Ja" customClass="SpringImageView" customModule="SpringAnimation">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <rect key="frame" x="-30" y="-30" width="380" height="628"/>
                                 <color key="backgroundColor" systemColor="tertiarySystemBackgroundColor"/>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="DpX-pE-QsE">
@@ -83,15 +83,15 @@
                             <constraint firstItem="1ov-XW-brX" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="1gO-Fv-p4g"/>
                             <constraint firstItem="DpX-pE-QsE" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="25i-ZU-RYV"/>
                             <constraint firstItem="1ov-XW-brX" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="4zU-4x-skd"/>
-                            <constraint firstAttribute="bottom" secondItem="u3b-Vu-5Ja" secondAttribute="bottom" id="Dhe-x6-dvo"/>
+                            <constraint firstAttribute="bottom" secondItem="u3b-Vu-5Ja" secondAttribute="bottom" constant="-30" id="Dhe-x6-dvo"/>
                             <constraint firstItem="DpX-pE-QsE" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="H3X-ED-jdw"/>
                             <constraint firstAttribute="trailing" secondItem="1ov-XW-brX" secondAttribute="trailing" id="KFV-iS-lfY"/>
                             <constraint firstItem="omd-vp-wAB" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Wds-pK-Akd"/>
                             <constraint firstItem="DpX-pE-QsE" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="WwR-1X-sJa"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="DpX-pE-QsE" secondAttribute="trailing" constant="16" id="eDe-hF-UpC"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="u3b-Vu-5Ja" secondAttribute="trailing" id="h9d-hS-iUY"/>
-                            <constraint firstItem="u3b-Vu-5Ja" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="yke-Sw-DjL"/>
-                            <constraint firstItem="u3b-Vu-5Ja" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="z5D-Kh-ldH"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="u3b-Vu-5Ja" secondAttribute="trailing" constant="-30" id="h9d-hS-iUY"/>
+                            <constraint firstItem="u3b-Vu-5Ja" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="-30" id="yke-Sw-DjL"/>
+                            <constraint firstItem="u3b-Vu-5Ja" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="-30" id="z5D-Kh-ldH"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="omd-vp-wAB" secondAttribute="bottom" multiplier="16:14" id="zWb-sn-NIu"/>
                         </constraints>
                     </view>
