@@ -10,6 +10,22 @@ import StoreKit
 
 class BuyViewController: UIViewController {
     
+    @IBOutlet weak var backgraudText: UILabel!{
+        didSet {
+            backgraudText.text = "Hello my friend click on “Buy” to support me 😉"
+            backgraudText.textColor = .white
+        }
+    }
+    @IBOutlet weak var backgraundViewBuy: UIView! {
+        didSet {
+            backgraundViewBuy.backgroundColor = .gray
+            backgraundViewBuy.alpha = 1
+            backgraundViewBuy.layer.cornerRadius = 20
+            backgraundViewBuy.layer.borderColor = UIColor.white.cgColor
+            backgraundViewBuy.layer.borderWidth = 1
+        }
+    }
+    
     let productIds = ["main"]
 
     override func viewDidLoad() {
