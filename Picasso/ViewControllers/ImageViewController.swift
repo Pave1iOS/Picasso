@@ -16,7 +16,11 @@ protocol SearchViewControllerDelegate {
 final class ImageViewController: UIViewController {
 
     // MARK: @IBOutlets
-    @IBOutlet weak var imageView: SpringImageView!
+    @IBOutlet weak var imageView: SpringImageView! {
+        didSet {
+            addParallaxToView(vw: imageView)
+        }
+    }
     @IBOutlet weak var nextImageButton: SpringView!
     
     @IBOutlet weak var activityIndicatorImage: UIActivityIndicatorView! {
@@ -80,6 +84,24 @@ extension ImageViewController: SearchViewControllerDelegate {
             veBlur.removeFromSuperview()
             imageAppeared()
         }
+    }
+}
+
+private extension ImageViewController {
+    func addParallaxToView(vw: UIView) {
+        let amount = 50
+
+        let horizontal = UIInterpolatingMotionEffect(keyPath: "center.x", type: .tiltAlongHorizontalAxis)
+        horizontal.minimumRelativeValue = -amount
+        horizontal.maximumRelativeValue = amount
+
+        let vertical = UIInterpolatingMotionEffect(keyPath: "center.y", type: .tiltAlongVerticalAxis)
+        vertical.minimumRelativeValue = -amount
+        vertical.maximumRelativeValue = amount
+
+        let group = UIMotionEffectGroup()
+        group.motionEffects = [horizontal, vertical]
+        vw.addMotionEffect(group)
     }
 }
 
