@@ -57,15 +57,14 @@ class BuyViewController: UIViewController {
                     // Successful purchase
                     await transaction.finish()
                 case let .success(.unverified(_, error)):
-                    // Successful purchase but transaction/receipt can't be verified
-                    // Could be a jailbroken phone
+                    print(error)
                     break
                 case .pending:
                     // Transaction waiting on SCA (Strong Customer Authentication) or
                     // approval from Ask to Buy
                     break
                 case .userCancelled:
-                    // ^^^
+                    print("Cancel")
                     break
                 @unknown default:
                     break
