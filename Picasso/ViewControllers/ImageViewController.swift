@@ -18,7 +18,7 @@ final class ImageViewController: UIViewController {
     // MARK: @IBOutlets
     @IBOutlet weak var imageView: SpringImageView! {
         didSet {
-            addParallaxToView(vw: imageView)
+            addParallaxToView(imageView)
         }
     }
     @IBOutlet weak var nextImageButton: SpringView!
@@ -88,7 +88,7 @@ extension ImageViewController: SearchViewControllerDelegate {
 }
 
 private extension ImageViewController {
-    func addParallaxToView(vw: UIView) {
+    func addParallaxToView(_ view: UIView) {
         let amount = 50
 
         let horizontal = UIInterpolatingMotionEffect(keyPath: "center.x", type: .tiltAlongHorizontalAxis)
@@ -101,7 +101,7 @@ private extension ImageViewController {
 
         let group = UIMotionEffectGroup()
         group.motionEffects = [horizontal, vertical]
-        vw.addMotionEffect(group)
+        view.addMotionEffect(group)
     }
 }
 
