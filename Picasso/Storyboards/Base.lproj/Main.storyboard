@@ -172,7 +172,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="collapseDesh" translatesAutoresizingMaskIntoConstraints="NO" id="ZhN-xd-41G">
-                                <rect key="frame" x="40" y="25" width="240" height="5"/>
+                                <rect key="frame" x="80" y="25" width="160" height="5"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="5" id="JoI-nG-gjq"/>
                                 </constraints>
@@ -239,9 +239,9 @@
                             <constraint firstItem="Bel-I4-lIt" firstAttribute="trailing" secondItem="rlZ-Om-ico" secondAttribute="trailing" constant="40" id="BMf-aF-lSQ"/>
                             <constraint firstItem="rlZ-Om-ico" firstAttribute="leading" secondItem="Bel-I4-lIt" secondAttribute="leading" constant="40" id="aP9-Sv-iGK"/>
                             <constraint firstItem="ZhN-xd-41G" firstAttribute="top" secondItem="Bel-I4-lIt" secondAttribute="top" constant="25" id="aQn-S0-DlV"/>
-                            <constraint firstItem="Bel-I4-lIt" firstAttribute="trailing" secondItem="ZhN-xd-41G" secondAttribute="trailing" constant="40" id="gwO-YS-IaS"/>
+                            <constraint firstItem="Bel-I4-lIt" firstAttribute="trailing" secondItem="ZhN-xd-41G" secondAttribute="trailing" constant="80" id="gwO-YS-IaS"/>
                             <constraint firstItem="rlZ-Om-ico" firstAttribute="centerX" secondItem="5ui-56-M1e" secondAttribute="centerX" id="jgJ-Hw-P73"/>
-                            <constraint firstItem="ZhN-xd-41G" firstAttribute="leading" secondItem="Bel-I4-lIt" secondAttribute="leading" constant="40" id="mtM-gF-jbL"/>
+                            <constraint firstItem="ZhN-xd-41G" firstAttribute="leading" secondItem="Bel-I4-lIt" secondAttribute="leading" constant="80" id="mtM-gF-jbL"/>
                             <constraint firstItem="Bel-I4-lIt" firstAttribute="trailing" secondItem="rlZ-Om-ico" secondAttribute="trailing" constant="40" id="mx2-9v-mYU"/>
                             <constraint firstItem="rlZ-Om-ico" firstAttribute="centerY" secondItem="5ui-56-M1e" secondAttribute="centerY" id="xmY-B3-GIZ"/>
                         </constraints>
@@ -554,7 +554,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="9KM-Qd-5IZ" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="lKR-pK-x9v">
-                        <rect key="frame" x="0.0" y="20" width="320" height="44"/>
+                        <rect key="frame" x="0.0" y="20" width="320" height="50"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <textAttributes key="titleTextAttributes">
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
