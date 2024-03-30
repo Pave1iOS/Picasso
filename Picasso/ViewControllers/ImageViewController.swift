@@ -61,6 +61,16 @@ final class ImageViewController: UIViewController {
         
         searchVC?.delegate = self
     }
+    
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        super.viewWillTransition(to: size, with: coordinator)
+        
+        if UIDevice.current.orientation.isLandscape {
+            print("Landscape")
+        } else if UIDevice.current.orientation.isPortrait {
+            print("isPortrait")
+        }
+    }
 }
 
 // MARK: Protocol - SearchViewControllerDelegate
