@@ -65,6 +65,11 @@ final class ImageViewController: UIViewController {
         UIImageWriteToSavedPhotosAlbum(selectedImage, self, #selector(image(_: didFinishSavingWithError:contextInfo:)), nil)
         savedImageAnimation()
     }
+    
+    @IBAction func sharedButtonDidTapped() {
+        
+    }
+    
         
     // MARK: override func
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
