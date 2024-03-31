@@ -41,6 +41,7 @@ final class ImageViewController: UIViewController {
     
     // MARK: Properties
     let networkManager = NetworkManager.shared
+    var imageURL: String!
     
     // MARK: viewDidLoad()
     override func viewDidLoad() {
@@ -67,10 +68,10 @@ final class ImageViewController: UIViewController {
     }
     
     @IBAction func sharedButtonDidTapped() {
-        
+        guard let url = NSURL(string: imageURL) else { return }
+        UIApplication.shared.open(url as URL)
     }
     
-        
     // MARK: override func
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let searchVC = segue.destination as? SearchViewController
@@ -182,6 +183,7 @@ private extension ImageViewController {
             case .success(let data):
                 fetchRandomImage(data)
                 
+                imageURL = data.urls.full
                 activityIndicatorImage.stopAnimating()
                 loadingLabel.isHidden = true
                 
