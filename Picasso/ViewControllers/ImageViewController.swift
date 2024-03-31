@@ -22,6 +22,7 @@ final class ImageViewController: UIViewController {
         }
     }
     @IBOutlet weak var nextImageButton: SpringView!
+    @IBOutlet weak var saveImageButton: SpringView!
     
     @IBOutlet weak var activityIndicatorImage: UIActivityIndicatorView! {
         didSet {
@@ -38,7 +39,6 @@ final class ImageViewController: UIViewController {
         }
     }
     
-    
     // MARK: Properties
     let networkManager = NetworkManager.shared
     
@@ -54,6 +54,17 @@ final class ImageViewController: UIViewController {
         loadingLabel.isHidden = false
         fetchPicasso()
     }
+    
+    @IBAction func downloadImageDidTapped() {
+                
+        guard let selectedImage = imageView.image else {
+            print("image not found")
+            return
+        }
+        
+        UIImageWriteToSavedPhotosAlbum(selectedImage, self, #selector(image(_: didFinishSavingWithError:contextInfo:)), nil)
+        savedImageAnimation()
+    }
         
     // MARK: override func
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -62,6 +73,8 @@ final class ImageViewController: UIViewController {
         searchVC?.delegate = self
     }
     
+    // поворот экрана
+    #warning("ВАЖНО: добавить поворот экрана")
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
         super.viewWillTransition(to: size, with: coordinator)
         
@@ -113,6 +126,22 @@ private extension ImageViewController {
         group.motionEffects = [horizontal, vertical]
         view.addMotionEffect(group)
     }
+    
+    // save image
+    @objc func image(_ image: UIImage, didFinishSavingWithError error: Error?, contextInfo: UnsafeRawPointer) {
+        if let error = error {
+            showAlert(with: "Save error", andMassage: error.localizedDescription)
+        } else {
+            showAlert(with: "Saved!", andMassage: "Photo saved to camera roll.")
+        }
+    }
+    
+    func showAlert(with title: String, andMassage massage: String) {
+        let alert = UIAlertController(title: title, message: massage, preferredStyle: .alert)
+        let action = UIAlertAction(title: "OK", style: .default)
+        alert.addAction(action)
+        present(alert, animated: true)
+    }
 }
 
 // MARK: Animation
@@ -132,6 +161,12 @@ private extension ImageViewController {
         imageView.duration = 2
         imageView.animate()
     }
+    
+    func savedImageAnimation() {
+        saveImageButton.animation = "morph"
+        saveImageButton.curve = "linear"
+        saveImageButton.animate()
+    }
 }
 
 // MARK: Fetch
@@ -140,7 +175,6 @@ private extension ImageViewController {
         networkManager.fetchPicasso { [unowned self] result in
             switch result {
             case .success(let data):
-                
                 fetchRandomImage(data)
                 
                 activityIndicatorImage.stopAnimating()
@@ -155,6 +189,7 @@ private extension ImageViewController {
     func fetchRandomImage(_ data: Picasso) {
         networkManager.fetchImage(from: URL(string: data.urls.regular)!) { [unowned self] dataImage in
             imageView.image = UIImage(data: dataImage)
+                            
             nextImageAnimate()
         }
     }

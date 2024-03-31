@@ -24,5 +24,4 @@ final class FilterView: UIView {
         //view
         backView.backgroundColor = .clear
     }
-
 }

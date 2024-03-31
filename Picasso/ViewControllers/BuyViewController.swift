@@ -53,21 +53,21 @@ class BuyViewController: UIViewController {
        let result = try await product.purchase()
         
         switch result {
-                case let .success(.verified(transaction)):
-                    // Successful purchase
-                    await transaction.finish()
-                case let .success(.unverified(_, error)):
-                    print(error)
-                    break
-                case .pending:
-                    // Transaction waiting on SCA (Strong Customer Authentication) or
-                    // approval from Ask to Buy
-                    break
-                case .userCancelled:
-                    print("Cancel")
-                    break
-                @unknown default:
-                    break
-                }
+            case let .success(.verified(transaction)):
+                // Successful purchase
+                await transaction.finish()
+            case let .success(.unverified(_, error)):
+                print(error)
+                break
+            case .pending:
+                // Transaction waiting on SCA (Strong Customer Authentication) or
+                // approval from Ask to Buy
+                break
+            case .userCancelled:
+                print("Cancel")
+                break
+            @unknown default:
+                break
+            }
     }
 }

@@ -15,12 +15,7 @@ final class ImageItemCollectionView: UICollectionViewCell {
             imageItemCV.contentMode = .scaleAspectFill
         }
     }
-    
-    override class func awakeFromNib() {
-        super.awakeFromNib()
-   
-    }
-    
+        
     func configure(with picasso: Picasso) {
         
         let imageURL = URL(string: picasso.urls.small)

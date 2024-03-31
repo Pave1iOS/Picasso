@@ -76,6 +76,36 @@
                                     <constraint firstItem="PSI-Uf-Wyo" firstAttribute="leading" secondItem="omd-vp-wAB" secondAttribute="leading" id="ypm-XX-pXm"/>
                                 </constraints>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Yi5-eo-osD" userLabel="downloadImage" customClass="SpringView" customModule="SpringAnimation">
+                                <rect key="frame" x="26.5" y="459.5" width="79" height="73"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="downloadimage" translatesAutoresizingMaskIntoConstraints="NO" id="CX9-I0-BLD">
+                                        <rect key="frame" x="0.0" y="0.0" width="79" height="73"/>
+                                    </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="19v-b2-NkN">
+                                        <rect key="frame" x="0.0" y="0.0" width="79" height="73"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title=""/>
+                                        <connections>
+                                            <action selector="downloadImageDidTapped" destination="BYZ-38-t0r" eventType="touchUpInside" id="XN0-Ll-QGW"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="79" id="92Q-qZ-VvQ"/>
+                                    <constraint firstItem="19v-b2-NkN" firstAttribute="top" secondItem="Yi5-eo-osD" secondAttribute="top" id="AiD-S8-XNU"/>
+                                    <constraint firstItem="CX9-I0-BLD" firstAttribute="leading" secondItem="Yi5-eo-osD" secondAttribute="leading" id="Icq-Lu-oJs"/>
+                                    <constraint firstAttribute="bottom" secondItem="CX9-I0-BLD" secondAttribute="bottom" id="Kdk-Hj-FRP"/>
+                                    <constraint firstAttribute="trailing" secondItem="CX9-I0-BLD" secondAttribute="trailing" id="N3W-53-OOB"/>
+                                    <constraint firstAttribute="height" constant="73" id="eVe-VT-cRL"/>
+                                    <constraint firstAttribute="bottom" secondItem="19v-b2-NkN" secondAttribute="bottom" id="gYT-Rz-JNY"/>
+                                    <constraint firstAttribute="trailing" secondItem="19v-b2-NkN" secondAttribute="trailing" id="iyx-Bf-y19"/>
+                                    <constraint firstItem="19v-b2-NkN" firstAttribute="leading" secondItem="Yi5-eo-osD" secondAttribute="leading" id="oRP-Z6-OLJ"/>
+                                    <constraint firstItem="CX9-I0-BLD" firstAttribute="top" secondItem="Yi5-eo-osD" secondAttribute="top" id="p8c-Uf-VgO"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -86,6 +116,8 @@
                             <constraint firstAttribute="bottom" secondItem="u3b-Vu-5Ja" secondAttribute="bottom" constant="-30" id="Dhe-x6-dvo"/>
                             <constraint firstItem="DpX-pE-QsE" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="H3X-ED-jdw"/>
                             <constraint firstAttribute="trailing" secondItem="1ov-XW-brX" secondAttribute="trailing" id="KFV-iS-lfY"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Yi5-eo-osD" secondAttribute="bottom" multiplier="16:15" id="TvE-Wu-fSm"/>
+                            <constraint firstItem="5OY-0O-Ijz" firstAttribute="leading" secondItem="Yi5-eo-osD" secondAttribute="trailing" constant="15" id="VGg-GR-5Ft"/>
                             <constraint firstItem="omd-vp-wAB" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Wds-pK-Akd"/>
                             <constraint firstItem="DpX-pE-QsE" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="WwR-1X-sJa"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="DpX-pE-QsE" secondAttribute="trailing" constant="16" id="eDe-hF-UpC"/>
@@ -115,6 +147,7 @@
                         <outlet property="imageView" destination="u3b-Vu-5Ja" id="MM8-g8-Tox"/>
                         <outlet property="loadingLabel" destination="HIS-0o-8CI" id="Gto-bH-2iA"/>
                         <outlet property="nextImageButton" destination="omd-vp-wAB" id="Mjh-Ng-7av"/>
+                        <outlet property="saveImageButton" destination="Yi5-eo-osD" id="NRV-1o-mcl"/>
                         <outlet property="veActivity" destination="lw1-57-Vvm" id="JGb-WI-GRL"/>
                         <outlet property="veBlur" destination="83j-zl-Oph" id="GDG-1w-wCY"/>
                     </connections>
@@ -573,6 +606,7 @@
     <resources>
         <image name="collapseDesh" width="512" height="512"/>
         <image name="cup.and.saucer" catalog="system" width="128" height="91"/>
+        <image name="downloadimage" width="548.33331298828125" height="548.33331298828125"/>
         <image name="nextImage" width="516" height="516"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
