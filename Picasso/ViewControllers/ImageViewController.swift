@@ -20,14 +20,18 @@ final class ImageViewController: UIViewController {
             statusBarBackgraund.backgroundColor = .clear
             let gradient = CAGradientLayer()
 
-            gradient.frame = CGRect(x: 0, y: 0, width: statusBarBackgraund.frame.width + 100, height: statusBarBackgraund.frame.height + 100)
+            gradient.frame = CGRect(
+                x: 0,
+                y: 0,
+                width: statusBarBackgraund.frame.width * 2,
+                height: statusBarBackgraund.frame.height + 200
+            )
             gradient.colors = [UIColor.darkGray.cgColor, UIColor.clear.cgColor]
             
             statusBarBackgraund.layer.insertSublayer(gradient, at: 0)
         }
     }
     
-
     // MARK: @IBOutlets
     @IBOutlet weak var imageView: SpringImageView! {
         didSet {
