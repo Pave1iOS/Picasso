@@ -14,6 +14,9 @@ protocol SearchViewControllerDelegate {
 }
 
 final class ImageViewController: UIViewController {
+    
+    @IBOutlet weak var statusBarBackgraund: UIView!
+    
 
     // MARK: @IBOutlets
     @IBOutlet weak var imageView: SpringImageView! {
@@ -23,6 +26,7 @@ final class ImageViewController: UIViewController {
     }
     @IBOutlet weak var nextImageButton: SpringView!
     @IBOutlet weak var saveImageButton: SpringView!
+    @IBOutlet weak var shareImageButton: UIView!
     
     @IBOutlet weak var activityIndicatorImage: UIActivityIndicatorView! {
         didSet {
@@ -68,8 +72,12 @@ final class ImageViewController: UIViewController {
     }
     
     @IBAction func sharedButtonDidTapped() {
-        guard let url = NSURL(string: imageURL) else { return }
-        UIApplication.shared.open(url as URL)
+        if imageURL != nil {
+            guard let url = NSURL(string: imageURL) else { return }
+            UIApplication.shared.open(url as URL)
+        } else {
+            imageURL = "https://github.com/Pave1iOS/Picasso"
+        }
     }
     
     // MARK: override func
@@ -80,14 +88,15 @@ final class ImageViewController: UIViewController {
     }
     
     // поворот экрана
-    #warning("ВАЖНО: добавить поворот экрана")
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
         super.viewWillTransition(to: size, with: coordinator)
         
         if UIDevice.current.orientation.isLandscape {
             print("Landscape")
+            interface(isHidden: true)
         } else if UIDevice.current.orientation.isPortrait {
             print("isPortrait")
+            interface(isHidden: false)
         }
     }
 }
@@ -147,6 +156,14 @@ private extension ImageViewController {
         let action = UIAlertAction(title: "OK", style: .default)
         alert.addAction(action)
         present(alert, animated: true)
+    }
+    
+    func interface(isHidden bool: Bool) {
+        navigationController?.isNavigationBarHidden = bool
+        statusBarBackgraund.isHidden = bool
+        nextImageButton.isHidden = bool
+        saveImageButton.isHidden = bool
+        shareImageButton.isHidden = bool
     }
 }
 
