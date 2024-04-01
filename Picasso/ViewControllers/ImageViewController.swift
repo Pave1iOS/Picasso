@@ -141,8 +141,7 @@ extension ImageViewController: SearchViewControllerDelegate {
 }
 
 private extension ImageViewController {
-    func addParallaxToView(_ view: UIView) {
-        let amount = 50
+    func addParallaxToView(_ view: UIView, amount: Int = 50) {
 
         let horizontal = UIInterpolatingMotionEffect(keyPath: "center.x", type: .tiltAlongHorizontalAxis)
         horizontal.minimumRelativeValue = -amount
