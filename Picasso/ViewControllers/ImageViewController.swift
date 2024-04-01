@@ -15,7 +15,17 @@ protocol SearchViewControllerDelegate {
 
 final class ImageViewController: UIViewController {
     
-    @IBOutlet weak var statusBarBackgraund: UIView!
+    @IBOutlet weak var statusBarBackgraund: UIView! {
+        didSet {
+            statusBarBackgraund.backgroundColor = .clear
+            let gradient = CAGradientLayer()
+
+            gradient.frame = CGRect(x: 0, y: 0, width: statusBarBackgraund.frame.width + 100, height: statusBarBackgraund.frame.height + 100)
+            gradient.colors = [UIColor.darkGray.cgColor, UIColor.clear.cgColor]
+            
+            statusBarBackgraund.layer.insertSublayer(gradient, at: 0)
+        }
+    }
     
 
     // MARK: @IBOutlets
@@ -64,6 +74,7 @@ final class ImageViewController: UIViewController {
                 
         guard let selectedImage = imageView.image else {
             print("image not found")
+            showAlert(with: "Sorry 😔", andMassage: "Image not found, try again later")
             return
         }
         
